@@ -1,0 +1,45 @@
+/* pages/advise/index.wxss */
+.advise {
+  padding: 30rpx;
+  border-top:1rpx solid #EEEEEE;
+}
+.textarea {
+  width: 100%;
+  height: 370rpx;
+}
+.addimg  image {
+  width: 78rpx;
+  height: 78rpx;
+  margin-right: 20rpx;
+}
+.addimg .feedbackImg{
+  width:200rpx;
+  position:relative;
+   padding:30rpx 30rpx 0 0;
+}
+.addimg .feedbackImg image{
+  width:50rpx;
+  height:50rpx;
+  position:absolute;
+  top:6rpx;
+  right:-10rpx;
+}
+ .line {
+  height: 60rpx;
+  line-height: 60rpx;
+  border-top: 1rpx solid #DBDBDB;
+  margin: 24rpx 0 0;
+  text-align:right;font-size:24rpx;color:#999
+}
+.sTabel .num{
+  color:#126FFF
+}
+
+.sTabel .submit {
+  width: 100%;
+  height: 95rpx;
+  background: rgba(62, 159, 210, 1);
+  border-radius: 8rpx;
+  color: #fff;
+  margin-top:23rpx;
+}

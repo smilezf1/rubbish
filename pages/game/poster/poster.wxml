@@ -1,0 +1,32 @@
+<!-- pages/poster/poster.wxml-->
+<view class="poster">
+<view class="container">
+<view class="top">
+<image src="{{backImg}}" mode="widthFix" class="back" bindtap="back"></image>
+<image src="{{poster6Img}}" mode="widthFix" class="topImg1"></image>
+<image src="{{poster1Img}}" class="topImg2" mode="widthFix"></image>
+<!-- 放路线的盒子 -->
+<view class="ImgBox">
+<image src="{{poster2Img}}" class="topImg3" mode="widthFix"></image>
+<image src="{{poster3Img}}" class="topImg4" mode="widthFix"></image>
+<image src="{{poster4Img}}" class="topImg5" mode="widthFix"></image>
+<image src="{{poster5Img}}" class="topImg6" mode="widthFix"></image>
+<image src="{{poster7Img}}" class="topImg7" mode="widthFix"></image>
+</view>
+</view>
+<view class="content">
+<view class="p1"><text class="left">核爆小悟空</text><text class="right">正在悦行美好中国</text></view>
+<view class="p2"><text class="left">上海</text><text class="middle"></text><text class="right">苏州</text></view>
+<view class="p3"><image src="{{game2Img}}" mode="widthFix"></image></view>
+<view class="p5">我们欢笑对你伸出手臂</view>
+<view class="p6">一起用脚步致敬祖国的每一寸土地</view>
+<view class="p7">全国悦队已行<text>{{num}}</text>公里</view>
+<view class="p8">为祖国70th献礼</view>
+</view>
+</view>
+<view class="footer">
+<view class="p1">中国队长快来开启你的的悦队</view>
+<view class="p2">激荡星钻狂揽大奖PLAY!</view>
+</view>
+</view>
+

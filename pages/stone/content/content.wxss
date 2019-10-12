@@ -1,0 +1,17 @@
+/* pages/stone/content/content.wxss */
+page{
+  height:100%;
+ border-top:2rpx solid #f2f2f2;
+  box-sizing:border-box;
+  padding:30rpx;
+}
+.article .title{
+  font-size:34rpx;
+  padding:10rpx;
+}
+.article .container{
+  color:#8D8D8D
+}
+.article .container view{
+  margin-top:20rpx;
+}

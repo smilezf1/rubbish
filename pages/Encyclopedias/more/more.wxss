@@ -1,0 +1,25 @@
+/* pages/Encyclopedias/more/index.wxss */
+page{
+  height:100%;
+  background:#F2F2F2;
+}
+.list-item {
+  margin: 0 25rpx;
+  height: 90rpx;
+  border-bottom: 1rpx solid#e7e7e7; 
+}
+.container {
+  padding-top: 20rpx;
+}
+
+.list {
+  width: 100%;
+  background: #fff;
+  color: #333;
+  font-size: 30rpx;
+  line-height: 90rpx;
+}
+
+.list-item:last-child {
+  border-bottom: 1rpx solid#fff;
+}

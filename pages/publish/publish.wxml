@@ -1,0 +1,16 @@
+<!--pages/publish/publish.wxml-->
+<view class="publish">
+<view class="top">
+<text class="title">标题</text>
+<text class="write">请填写</text>
+</view>
+<view class="content">
+<image  class="add" src="/static/images/add2.png" mode="widthFix" bindtap="add"></image>
+<view class="imgBox" wx:for="{{imgList}}" wx:key>
+<image mode="widthFix" src="{{item}}" class="img">
+<image src="/static/images/delete.png" class="icon" mode="widthFix" ></image>
+</image>
+</view>
+<view class="announce">发表</view>
+</view>
+</view>

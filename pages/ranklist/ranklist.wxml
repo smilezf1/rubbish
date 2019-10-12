@@ -1,0 +1,17 @@
+<!--pages/ranklist/index.wxml-->
+<view class="ranklist">
+  <view class="list">
+  <button open-type="getUserInfo"></button>
+    <view class="list-item" wx:for="{{list}}" wx:key="{{item.id}}" wx:if="{{index<30}}">
+      <image src="{{rank[index]}}" class="rank " mode="widthFix" wx:if="{{index<3}}"></image>
+      <text class="rank" wx:if="{{index>2}}">{{index+1}}</text>
+      <text class="name">{{item.title}}</text>
+      <view class="scoreBox">
+      <text class="score">总分数:</text>
+      <text class="mainNum">{{item.score}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="block">
+</view>

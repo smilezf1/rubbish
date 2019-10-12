@@ -1,0 +1,64 @@
+<!--pages/separate/separate.wxml-->
+<view class="separate">
+  <!-- 头部 -->
+  <view class="s-top">
+    <image src="/static/images/separateIcon.png" mode="widthFix" class="icon"></image>
+    <text class="title">上海市日常生活垃圾怎么分？</text>
+  </view>
+  <!-- 搜索 -->
+  <view class="search">
+    <input placeholder="香蕉皮" style="background:url('{{list[0].select}}') 20rpx 24rpx/5% no-repeat" bindinput="input" value="{{searchvalue}}"></input>
+    
+    <navigator class="query" target="{{miniProgram}}" app-id="wx10d9d1765d1ea386" hover-class="none"
+    bindtap="query">查询</navigator>
+  </view>
+  <!-- 主体部分 -->
+  <view class="main">
+    <!-- 判断没有查询之前是什么样子，查询之后是什么样子 -->
+    <view class="container" wx:if="{{show==1}}">
+      <view class="main-top">
+        <block wx:for="{{list}}" wx:key>
+          <image src="{{item.icon}}" mode="widthFix"></image>
+        </block>
+      </view>
+      <view class="main-content">
+        鼓励将可回收物卖入废品回收系统,或两网融合服务点，或投放至
+        <text class="text1">可回收垃圾</text>收集容器；严禁将
+        <text class="text2">有害垃圾</text> 投放到其他生活垃圾容器;日常家庭生活垃圾要做到
+        <text class="text3">干、</text>
+        <text class="text4">湿</text>两分开。
+      </view>
+    </view>
+    <view class="container1" wx:if="{{show==2}}">
+      <view class="main-top">
+        <image src="{{message.icon}}" mode="widthFix"></image>
+      </view>
+      <view class="main-content">
+        <!-- 关于 -->
+        <view class="about">
+          <view class="title">关于{{message.title}}</view>
+          <view class="content">{{message.about}}</view>
+        </view>
+        <!-- 主要包含 -->
+        <view class="include">
+          <view class="title">主要包含</view>
+          <view class="content">{{message.including}}</view>
+        </view>
+        <!-- 投放要求 -->
+        <view class="require">
+          <view class="title">投放要求</view>
+          <view class="content">
+            <view wx:for="{{message.rules}}" wx:key="" class="requirement"><view class="circle"></view> {{item}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="container2" wx:if="{{show==3}}">未找到相关结果</view>
+  </view>
+<view class="searchHint" hidden="{{searchBoxShow}}">
+<view class="searchHint-title">请输入要查询的垃圾名称</view>
+<view class="searchHint-choose" bindtap="confirm">确定</view>
+</view>
+
+
+</view>

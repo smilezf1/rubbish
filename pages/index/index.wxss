@@ -1,0 +1,100 @@
+/**index.wxss**/
+page{
+  height:100%;
+  background:#83CAEF;
+  width:100%;
+  padding:0 60rpx;
+  box-sizing:border-box;
+}
+.index .top {
+   text-align:center;
+   margin-bottom:60rpx;
+}
+.index .top .left {
+width:150rpx;
+position:relative;
+left:25rpx;
+}
+.index .top-title{
+  width:90%;
+  display:flex;
+  align-items: center;
+  justify-content:space-between;
+  color:#fff;
+  font-weight:550;
+  font-size:50rpx;
+  position:relative;
+  left:-40rpx;
+}
+.index .top-title .right{
+  margin-left:10rpx;
+  position:relative;
+  left:42rpx
+}
+.index .content {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 320rpx 320rpx;
+  grid-template-rows: 132rpx 132rpx 132rpx 132rpx 132rpx;
+  grid-row-gap:40rpx;
+  grid-column-gap:40rpx;
+}
+.index .content image{
+  width:60rpx;
+  height:52rpx;
+}
+/* 实现五边形 */
+/* 长方形 */
+.index .content .suggest{
+  position: relative;
+  width:677rpx;
+  height:140rpx;
+  overflow:hidden;
+  box-sizing:border-box;
+  padding-left:20rpx;
+}
+.index .content .suggest image{
+  z-index:3
+}
+.index .content .suggestContent{
+  position:relative;
+  z-index:2;
+  line-height:130rpx;
+}
+/* 正方形 */
+.index .suggest .box{
+   width:1280rpx;
+  height:820rpx;
+  background-color:#e8f4fc;
+  transform:rotate(-45deg);
+  position:absolute;
+  bottom:0;
+  left:385rpx;
+  margin-left:-592rpx;
+}
+.index .content .suggest{
+  line-height:150rpx;
+}
+.index .content .suggest image{
+  width:50rpx;
+  height:60rpx;
+  margin-right:20rpx;
+  position:relative;
+  top:13rpx;
+}
+.index .content .item {
+  background: #e8f4fc;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  color: #888;
+  font-size: 26rpx;
+}
+.index .content .item image {
+  margin: 0 20rpx;
+}
+.index .content .item-text {
+  color: #333;
+  font-size: 34rpx;
+}
+

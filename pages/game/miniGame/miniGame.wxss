@@ -1,0 +1,126 @@
+/* pages/miniGame/miniGame.wxss */
+
+page {
+  height: 100%;
+}
+
+.miniGame {
+  width: 100%;
+  height: 100%;
+  padding: 80rpx 40rpx 120rpx 40rpx;
+  box-sizing: border-box;
+}
+
+.miniGame .container {
+  height: 100%;
+}
+
+.miniGame .top {
+  background: white;
+  padding: 20rpx 20rpx;
+  display: flex;
+  align-items: center;
+  border: 4rpx dotted white;
+  border-bottom-color: #cbcbcb;
+}
+
+.miniGame .top .clock {
+  width: 70rpx;
+  height: 70rpx;
+}
+
+.miniGame .top  .residue {
+  color: #8a8a8a;
+  font-size: 32rpx;
+  margin-left: 14rpx;
+}
+
+.miniGame .top .time {
+  font-size: 40rpx;
+  font-weight: 550;
+  color: #333;
+}
+
+.miniGame .detail {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 20rpx 40rpx 40rpx 40rpx;
+  border: 4rpx dotted transparent;
+  border-bottom-color: #cbcbcb;
+  box-sizing: border-box;
+}
+
+.miniGame .detail-top {
+  padding: 0rpx 40rpx;
+  display: flex;
+  justify-content: space-between;
+  color: #343434;
+  margin-bottom: 20rpx;
+}
+
+.miniGame .detail-top .left {
+  color: #3e9fd2;
+  font-weight: 550;
+}
+
+.miniGame .detail-top .right .num {
+  font-weight: bold;
+  font-size: 44rpx;
+}
+
+.miniGame .detail-title {
+  font-weight: bold;
+  text-align: center;
+  height: 100rpx;
+}
+/* 没有点击选型之前 */
+.miniGame .detail .listItem {
+  width: 100%;
+  display: block;
+  background: white;
+  margin: 25rpx 0;
+  text-align: center;
+  padding: 25rpx 0;
+  font-size: 34rpx;
+  border-radius: 100rpx;
+  color: #3d3d3d;
+  box-shadow: 0rpx 0rpx 20rpx gray;
+  border: 1px solid #fff;
+}
+/* 点击选型回答且是正确的 */
+.miniGame .detail .isChecked {
+  width: 100%;
+  display: block;
+  background: white;
+  margin: 25rpx 0;
+  text-align: center;
+  padding: 25rpx 0;
+  font-size: 34rpx;
+  border-radius: 100px;
+  background: #d2efff;
+  color: #1b89cf;
+  border: 1px solid #1b89cf;
+}
+.miniGame .detail .error {
+  color:#fff;
+  background: rgba(234, 96, 94, 0.589);
+  border: 1px solid #EA615E;
+}
+
+.miniGame .bottom {
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 40rpx 0;
+  background: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  color: white;
+  border-bottom-right-radius: 20rpx;
+  border-bottom-left-radius: 20rpx;
+}
+
+.miniGame .bottom .next {
+  width: 80%;
+  display: inline-block;
+  background: #1b8acf;
+  border-radius: 20rpx;
+  font-weight: 550;
+}

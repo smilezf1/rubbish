@@ -1,0 +1,10 @@
+<!--pages/stone/content/content.wxml-->
+<view class="stoneContent">
+<view class="article">
+<!-- <view class="title">{{listItem.title}}</view>
+<image mode="widthFix" src="{{listItem.pic}}" style="width:100%"></image> -->
+<view class="container">
+<rich-text nodes="{{listItem.content}}"></rich-text>
+</view>
+</view>
+</view>

@@ -1,0 +1,62 @@
+/* pages/Encyclopedias/Encyclopedias.wxss */
+
+page{
+  height:100%;
+}
+.container {
+  height:100%;
+  background: #e3e3e3;background-repeat: no-repeat;background-size:100%;background-position: center bottom;
+}
+.search {
+  padding: 25rpx;
+  display:inline-block;
+  width:100%;
+ margin:0 auto;
+ box-sizing:border-box;
+}
+.search image {
+  width: 44rpx;
+  margin: 0 25rpx 0 0;
+}
+.input-view {
+  padding: 0 30rpx;
+  height: 80rpx;
+  border: 1rpx solid #c9c9c9;
+  box-shadow: 0 1rpx 10rpx 0 #b3b3b3 inset;
+  background: rgba(255, 255, 255, 0.62);
+  display: flex;
+  align-items: center;
+}
+.input-view input {
+  flex: 1;
+  font-size: 28rpx;
+}
+
+.content {
+  display: flex;
+  margin-top: 100rpx;
+  flex-direction: column;
+}
+
+.content-item {
+  width: 540rpx;
+  height: 86rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0rpx 2rpx 14rpx 0rpx rgba(200, 200, 200, 1);
+  border-radius: 43rpx;
+  margin: auto;
+  margin-bottom: 30rpx;
+  font-size: 26rpx;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+  line-height: 86rpx;
+  text-align: center;
+}
+.more {
+  font-size: 22rpx;
+  color: #3e9fd2;
+  text-align: center;
+}
+.more navigator{
+font-size:28rpx;
+}

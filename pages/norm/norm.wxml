@@ -1,0 +1,4 @@
+<!--pages/norm/norm.wxml-->
+<view class="norm">
+<image src="{{norm1Img}}" mode="widthFix"></image>
+</view>

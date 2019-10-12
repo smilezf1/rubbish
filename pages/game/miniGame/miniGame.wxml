@@ -1,0 +1,29 @@
+<!--pages/miniGame/miniGame.wxml-->
+<view class="miniGame" style="background:url('{{miniGame1Img}}') no-repeat 0px 0px/cover">
+  <view class="container">
+    <view class="top">
+      <image src="{{miniGame2Img}}" mode="widthFix" class="clock"></image>
+      <text class="residue ">剩余时间：</text>
+      <text class="time">
+   <text class="minute">{{minute}}:</text>
+      <text class="second">{{second}}</text>
+      </text>
+    </view>
+    <view class="detail">
+      <view class="detail-top">
+        <text class="left prev" bindtap="previous">{{current!=0?"上一题":""}}</text>
+        <text class="right">第<text class="num">{{current+1}}</text>/{{list.length}}题</text>
+      </view>
+      <!-- 问题部分 start -->
+      <view class="detail-title">{{list[current].title}}</view>
+      <view class="list">
+      <text class="{{item.choose==list[current].userAnswer?(list[current].answer==list[current].userAnswer?'isChecked':'isChecked error'):'listItem'}}" wx:for="{{listItem}}" wx:key bindtap="changeBg" data-answer="{{item.choose}}"data-current="{{list[current].answer}}">{{item.options}}</text>
+      </view>
+      <!-- 问题部分end -->
+    </view>
+    <view class="bottom">
+      <text class="next" bindtap="complete" wx:if="{{current==list.length-1}}">再来一次</text>
+      <text class="next" bindtap="next" wx:else>下一题</text>
+    </view>
+  </view>
+</view>

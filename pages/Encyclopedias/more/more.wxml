@@ -1,0 +1,6 @@
+<!--pages/Encyclopedias/more/more.wxml-->
+<view class="container">
+  <view class="list">
+  <navigator class="list-item" hover-class="none" wx:for="{{listItem}}" wx:key="" url="/pages/fullBackUp/fullBackUp?id={{item.id}}">{{item.title}}</navigator>
+  </view>
+</view>

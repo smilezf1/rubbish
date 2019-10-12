@@ -1,0 +1,16 @@
+<view class="stone">
+<view class="article">
+<view class="article-item" wx:for="{{listItem}}" wx:key="{{item.id}}">
+<navigator  hover-class="none" url="/pages/stone/content/content?id={{item.id}}">
+<view class="time">{{item.createtime}}</view>
+<view class="main">
+<view class="main-img"><image src="{{item.pic}}" mode="widthFix" class="pic"></image></view>
+<view class="main-container">
+<view class="main-container-title">{{item.title}}</view>
+<view class="main-container-content">{{item.P1}}</view>
+</view>
+</view>
+</navigator>
+</view>
+</view>
+</view>

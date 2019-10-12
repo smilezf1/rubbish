@@ -1,0 +1,30 @@
+<!--pages/wenda/index.wxml-->
+<view class="wenda" style="background:url('{{bgImg}}')">
+  <view class="top">
+    <image class="logo" mode="widthFix" src="{{logoImg}}"></image>
+    <text class="wenda-num">
+    <text class="num1">{{listItem[page].no}}</text>
+     <text class="num2"> /10</text>
+    </text>
+    </view>
+  <view class="content">
+  <image src="{{listItem[page].img}}" class="content-img" mode="{{widthFix}}"></image>
+  <view class="top">
+   <view class="title">{{listItem[page].title}}</view>
+    <view class="subtitle">{{listItem[page].subtitle}}</view>
+  </view>
+  <view class="details">
+  <view class="detail1">{{listItem[page].p1}}</view>
+  <view class="detail2" wx:if="listItem[page].p2">{{listItem[page].p2}}</view>
+   <view class="detail3" wx:if="listItem[page].p3">{{listItem[page].p3}}</view>
+</view>
+    <view class="ctrl-btn">
+      <text wx:if="{{listItem[page].id ==1}}">下一页</text>
+      <image src="{{prevImg}}" mode="widthFix" wx:if="{{listItem[page].id>1}}" bindtap="prev"></image>
+      <image src="{{nextImg}}" mode="widthFix " wx:if="{{listItem[page].id!=10}}" bindtap="next" >
+      </image>
+      <text wx:if="{{listItem[page].id==10}}">上一页</text>
+    </view>
+    <image src="{{listItem[page].icon}}" class="icon" mode="widthFix"></image> 
+</view>
+</view>

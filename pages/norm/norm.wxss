@@ -1,0 +1,11 @@
+/* pages/norm/norm.wxss */
+page{
+  height:100%;
+}
+.norm{
+  height:100%;
+  border:2rpx solid #EEEEED;
+}
+.norm image{
+  width:100%;
+}

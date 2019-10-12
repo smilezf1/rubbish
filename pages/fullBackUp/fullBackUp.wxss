@@ -1,0 +1,58 @@
+/* pages/fullBackUp/fullBackUp.wxss */
+page{
+  height:100%;
+}
+.fullBackUp{
+  height:100%;
+  background:#FFFFFE;
+  border-top:1px solid #EEEEEE;
+  padding:20rpx 40rpx 40rpx 40rpx;
+  color:#E88266;
+}
+.fullBackUp .top{
+  margin-top:10rpx;
+}
+/* 头部部分 */
+.top .honorific{
+  font-size:32rpx;
+  font-weight:550;
+}
+.top .line1{
+  font-weight:600;
+  font-size:28rpx;
+  text-indent:1.5em;
+}
+/* 主体部分 */
+.content{
+ /* height:954rpx; */
+ box-sizing:border-box;
+ display:flex;
+ justify-content:space-between;
+ margin-top:10rpx;
+}
+.content .left,.content .right{
+float:left;
+width:46%;
+height:100%;
+}
+.content .left view ,.content .right view{
+  margin-bottom:10rpx;
+}
+.content .title{
+   color:#E88266;
+   font-weight:550;
+   font-size:28rpx;
+}
+.content .article{
+  font-size:24rpx;
+  color:#333;
+  text-indent:2em;
+  /* css段落左右都对齐 */
+  text-align: justify ;
+}
+.content .epilog{
+  color:#333;
+  text-align:right;
+  font-size:24rpx;
+  margin-top:50rpx;
+}

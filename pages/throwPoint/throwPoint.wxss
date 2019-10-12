@@ -1,0 +1,90 @@
+/* pages/throwPoint/throwPoint.wxss */
+
+page {
+  height: 100%;
+  border-top: 2rpx solid #e7e7e7;
+  box-sizing: border-box;
+}
+
+.throwPoint {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.throwPoint-top .p1, .throwPoint-top .p2 {
+  border-bottom: 2rpx solid #e7e7e7;
+  padding: 30rpx 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.throwPoint-top .p1 .right, .throwPoint-top .p2 .right {
+  float: right;
+  color: #999;
+  margin-right: 30rpx;
+}
+
+.throwPoint-top .advance {
+  width: 18rpx;
+  float: right;
+  position: relative;
+  top: 6rpx;
+  left: -16rpx;
+}
+
+.throwPoint-top .choose {
+  /* position: absolute;
+  right: 76rpx;
+  color: #999; */
+  color: #666;
+  margin-right: 30rpx;
+}
+
+.throwPoint-content {
+  height: 83%;
+  background: #f2f2f2;
+  padding: 40rpx;
+}
+
+.throwPoint-content .query {
+  background: #c5deea;
+  color: white;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 20rpx 0;
+  border-radius: 10rpx;
+}
+.throwPoint-content .canquery {
+  background: linear-gradient(315deg, rgba(8, 125, 200, 1) 0%, rgba(96, 183, 233, 1) 100%);
+}
+.result {
+  padding: 0rpx 25rpx 25rpx;
+  margin: 50rpx 0rpx 0;
+  background: #fff;
+}
+
+.result-item {
+  font-size: 26rpx;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: rgba(102, 102, 102, 1);
+  line-height: 50rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.blue {
+  width: 12rpx;
+  height: 12rpx;
+  background: rgba(100, 153, 178, 1);
+  border-radius: 50%;
+  margin-right: 25rpx;
+}
+.time{
+  font-size:26rpx;
+  font-family: PingFangSC; 
+  font-weight: 400;
+  color: rgba(102, 102, 102, 1);
+}

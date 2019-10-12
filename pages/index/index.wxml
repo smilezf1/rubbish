@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<view class="index">
+  <view class="top">
+    <view class="top-title">
+    <image src="/static/images/logo.png" mode="widthFix" class="left"></image>
+    <image src="/static/images/top1.png" mode="widthFix" class="right"></image>
+    </view>
+  </view>
+  <view class="content">
+    <navigator open-type="navigate" class="item" wx:for="{{list}}" wx:key url="{{}}" hover-class="none" data-url="{{item.src}}" bindtap="jump">
+      <image src="{{item.img}}" mode="aspectFit" bindload="loadpic" data-index="{{index}}"></image>
+      <view>
+        {{item.navContent}}
+        <view class="item-text">{{item.navTitle}}</view>
+      </view>
+    </navigator>
+    <!-- 五边形：外层透明overflow:hidden的长方形 -->
+    <navigator class="suggest" url="/pages/advise/advise" hover-class="none">
+    <image src="/static/images/item9.png" mode="widthFix"></image>
+    <!-- 绝对定位的正方体,旋转正方体让它能足够覆盖长方形 -->
+    <text class="suggestContent">反馈与建议</text>
+    <text class="box"></text>
+    </navigator>
+  </view>
+</view>

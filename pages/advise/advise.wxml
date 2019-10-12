@@ -1,0 +1,16 @@
+<!--pages/advise/index.wxml-->
+<view class="advise">
+<form class="sTabel" bindsubmit="sub">
+<textarea class="textarea" placeholder="请填写反馈建议" value="{{value}}" name="textarea" bindinput="input" maxlength="200"></textarea>
+<view class="addimg">
+<image src="{{item}}" wx:for="{{imglist}}" wx:key mode="widthFix" bindtap="removeimg" data-index="{{index}}" name="img" mode="widthFix" class="feedbackImg">
+<image src="/static/images/delete.png" mode="widthFix"></image>
+</image> 
+<image src="/static/images/add.png" bindtap="addimg"></image>
+</view>
+<view class="line">
+<text class="num">{{cursor}}</text>/200
+</view>
+<button class="submit" form-type="submit" loading="{{loading}}">提交</button>
+</form>
+</view>

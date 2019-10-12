@@ -1,0 +1,42 @@
+/* pages/publish/publish.wxss */
+.publish .top{
+  padding:30rpx;
+  border-bottom:2rpx solid #F2F2F2;
+}
+.publish .top text{
+  margin-right:30rpx;
+}
+.publish .top  .write{
+  color:#999999;
+}
+.publish .content{
+  padding:40rpx 30rpx 20rpx 30rpx;
+}
+.publish .content .add{
+  width:170rpx;
+}
+.publish .content .announce{
+  height:90rpx;
+  line-height:90rpx;
+  background:#3E9FD2;
+  text-align:center;
+  color:white;
+  border-radius:10rpx;
+  margin-top:80rpx;
+}
+.publish .content .imgBox image{
+  width:150rpx;
+  border-radius:5rpx;
+}
+.publish .content .img{
+  position:relative;padding:15rpx 35rpx 0 0;
+}
+.publish .content .imgBox{
+  display:inline-block;
+}
+.publish .content .imgBox .icon{
+  width:40rpx;
+  position:absolute;
+  top:0;
+  right:11rpx
+}

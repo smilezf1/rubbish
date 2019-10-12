@@ -1,0 +1,43 @@
+<!--pages/game/game.wxml-->
+
+<view class="container" style="background:url('{{game4Img}}') no-repeat 0rpx -230rpx/cover;background-size:150%;">
+  <!-- 自定义返回按钮 -->
+  <image src="{{backImg}}" class="back" bindtap="back"></image>
+  <view class="title">垃圾分类小游戏</view>
+  <view class="content">
+    <view class="contnet-top">
+      <image src="{{game1Img}}" mode="widthFix" class="content-img1"></image>
+      <view class="content-main">
+        <view class="p1">全国悦队功共完成
+          <text class="num">{{listItem.count}}</text>公里</view>
+        <view class="p3">
+          <text class="text1"></text>
+          <text class="text2">我的悦队正完成</text>
+          <text class="text3"></text>
+          <view class="p4">
+            <text class="left">排名涨跌<text class="num">{{listItem.Rise}}</text></text>
+            <text class="right">我的排名<text class="num">{{listItem.num}}</text></text>
+          </view>
+          <view class="content-bottom">
+            <image src="{{game2Img}}" mode="widthFix"></image>
+            <view class="p1">
+              <text class="left">我已贡献<text class="num">{{listItem.mycount}}</text>步</text>
+            </view>
+            <view class="p2">
+              <button bindtap="upload">上传步数</button>
+              <text class="right" bindtap="getPoster">生成海报</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="notice">
+      <navigator>悦队榜</navigator>
+      <navigator url="/pages/ranklist/ranklist">地区榜</navigator>
+    </view>
+    <view class="bottom">
+      <image src="{{gameUpImg}}" mode="widthFix"></image>
+      <navigator url="/pages/game/miniGame/miniGame" hover-class="none" class="rush">单人闯关</navigator>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,88 @@
+/* pages/ranklist/ranklist.wxss */
+/* pages/ranklist/index.wxss */
+page {
+  background: #F2F2F2;
+}
+.ranklist{
+  border-top:2rpx solid #EEEEEE;
+  margin-bottom:-72px;
+}
+.ranklist .list {
+  padding: 0 20rpx;
+  background: #fff;
+}
+.ranklist .rank {
+  width: 45rpx;
+  text-align: center;
+  font-size: 36rpx;
+}
+.ranklist .mainNum{
+  font-size:34rpx;
+  font-weight:550;
+  position:relative;
+  top:4rpx;
+  margin-left:10rpx;
+  color:#333;
+}
+
+.ranklist .list .score{
+  color:#999;
+  font-size:30rpx;
+}
+.ranklist .list-item {
+  display: flex;
+  align-items: center;
+  border-bottom: 2rpx solid #EEEEEE;
+  height: 144rpx;
+  width: 100%;
+}
+
+.ranklist .list-item:last-child {
+  border-bottom: 2rpx solid #fff;
+}
+.userimg {
+  width: 80rpx;
+  height: 80rpx;
+  margin: 0 20rpx;
+  border: 1rpx solid#999;
+  border-radius: 50%;
+}
+.num {
+  font-size: 24rpx;
+  color: #888;
+  width: 168rpx;
+  display: flex;
+  align-items: center;
+}
+.block {
+  height: 144rpx;
+}
+.footer {
+  width: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
+  background:linear-gradient(#70CCEA 20%,#41A2D3 100%);
+}
+.footer-item {
+  display: flex;
+  align-items: center;
+  height: 144rpx;
+  width: 100%;
+  color: #fff;
+  box-sizing:border-box;
+  padding:40rpx;
+}
+.name{
+  flex:1;
+  margin-left:30rpx;
+}
+.footer-item .name{
+  font-size:34rpx;
+}
+.footer-item .bottomNum {
+  font-size:26rpx;
+}
+.footer-item .bottomNum>text{
+  font-size:38rpx;
+}

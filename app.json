@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/Encyclopedias/Encyclopedias",
+    "pages/Encyclopedias/more/more",
+    "pages/advise/advise",
+    "pages/ranklist/ranklist",
+    "pages/wenda/wenda",
+    "pages/game/game",
+    "pages/game/poster/poster",
+    "pages/game/miniGame/miniGame",
+    "pages/fullBackUp/fullBackUp",
+    "pages/norm/norm",
+    "pages/separate/separate",
+    "pages/throwPoint/throwPoint",
+    "pages/stone/stone",
+    "pages/stone/content/content",
+    "pages/star/star",
+    "pages/publish/publish",
+    "pages/aa/aa"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
+  },
+  "navigateToMiniProgramAppIdList":[
+   "wx10d9d1765d1ea386"
+  ],
+  "sitemapLocation": "sitemap.json",
+   "networkTimeout":{
+     "request":10000
+   }
+}
