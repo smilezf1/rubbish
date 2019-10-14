@@ -2,16 +2,18 @@
 //获取应用实例
 const app = getApp()
 const basePath = require('../../utils/config.js');
+// <navigator class="query" target="{{miniProgram}}" app-id="wx10d9d1765d1ea386" hover-class="none"bindtap = "query" > 查询</navigator >
 Page({
   data: {
-    list: [{
-        id: 1,
-        navTitle: "查询",
-        navContent: "垃圾怎么分",
-        img: "/static/images/item1.png",
-        // src: "/pages/separate/separate"
-      src: "/pages/aa/aa"
-      },
+    list: [
+      // {
+      //   id: 1,
+      //   navTitle: "查询",
+      //   navContent: "垃圾怎么分",
+      //   img: "/static/images/item1.png",
+      //   // src: "/pages/separate/separate"
+      //  src: "/pages/aa/aa",
+      // },
       {
         id: 2,
         navTitle: "查询",
@@ -89,6 +91,12 @@ Page({
         icon: 'none',
       })
     }
+  },
+
+  //查询
+  query(){
+    console.log(1);
+
   },
   /**
    * 用户点击右上角分享

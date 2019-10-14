@@ -60,7 +60,7 @@ Page({
     const answer = curQuestion.answer;
     if(userAnswer == answer){
       wx.showToast({title:'回答正确',image:"/static/images/success.png" });
-      if( current<(list.length-1) ){
+      if(current<(list.length-1)){
         this.setData({current:current+1});
       }
     }else{
@@ -73,13 +73,23 @@ Page({
     }
   },
   next(){ 
-    if(this.data.list[this.data.current].userAnswer==undefined){
-      wx.showToast({title: '请选择选项',icon:"none"});
-    }else{
-      if (this.data.current < 4) {
-        this.setData({ current: this.data.current + 1, pageNumber: this.data.pageNumber + 1 })
+    const userAnswer = this.data.list[this.data.current].userAnswer;
+    const answer = this.data.list[this.data.current].answer;
+    if (this.data.list[this.data.current].userAnswer == undefined) {
+      wx.showToast({ title: '请选择选项', icon: "none" })
+    } else {
+      if (userAnswer == answer) {
+        if (this.data.current < 4) {
+          this.setData({ current: this.data.current + 1, pageNumber: this.data.pageNumber + 1 })
+        }
+      } else {
+        wx.showToast({
+          title: '答对才可以进入下一题哦', icon: "none"
+        })
       }
     }
+
+
   },
   previous(){
     if (this.data.current > 0) {

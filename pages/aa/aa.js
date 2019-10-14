@@ -35,7 +35,7 @@ Page({
     if (this.data.searchValue==""||/^[0-9]*$/.test(this.data.searchValue)){
       this.setData({searchBoxShow:false})
     }else{
-      this.setData({ miniProgram:"miniProgram"});
+      this.setData({miniProgram:"miniProgram"});
     }
   },
   confirm(){

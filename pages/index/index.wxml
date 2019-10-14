@@ -7,13 +7,22 @@
     </view>
   </view>
   <view class="content">
+  <navigator target="miniProgram" hover-class="none"  class="item" app-id="wx10d9d1765d1ea386" path=""  version="release">
+  <image src="/static/images/item1.png" mode="aspectFit"></image>
+   <view> 垃圾怎么分
+        <view class="item-text">查询</view>
+      </view>
+  </navigator>
     <navigator open-type="navigate" class="item" wx:for="{{list}}" wx:key url="{{}}" hover-class="none" data-url="{{item.src}}" bindtap="jump">
+   
       <image src="{{item.img}}" mode="aspectFit" bindload="loadpic" data-index="{{index}}"></image>
       <view>
         {{item.navContent}}
         <view class="item-text">{{item.navTitle}}</view>
       </view>
     </navigator>
+
+
     <!-- 五边形：外层透明overflow:hidden的长方形 -->
     <navigator class="suggest" url="/pages/advise/advise" hover-class="none">
     <image src="/static/images/item9.png" mode="widthFix"></image>

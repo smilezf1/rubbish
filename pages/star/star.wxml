@@ -13,6 +13,7 @@
  <view class="title">{{item.title}}</view>
  <view class="container">
  <image src="{{item.image}}" mode="widthFix" style="width:100%"></image>
+ <!-- <image src="{{item.image}}"  style="width:670rpx;height:470rpx"></image> -->
  <!-- 点赞 -->
  <view class="praise" bindtap="praise" data-type="{{item.type}}" data-index="{{index}}" data-id="{{item.id}}">
  <image  wx:if="{{item.type==0}}" src="/static/images/praise1.png" mode="widthFix"></image>

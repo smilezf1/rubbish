@@ -10,21 +10,20 @@ Page({
     bgImg: "" + basePath + "/image/garbage/chuangquan01.png",
     searchImg: "/static/images/search.png",
     value:"",
+    placeholderColor:"",
     show:false
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var $this = this
-    wx.showLoading({
-      title: '正在加载',
-    })
+    var _this = this
+    wx.showLoading({ title: '正在加载',})
     wx.request({
       url: ''+basePath+'/garbage/Index/encyclopedia',
       method:"post",
       success(res){
-        $this.setData({list:res.data.data});
+        _this.setData({list:res.data.data});
         console.log(res.data.data);
         wx.hideLoading()
       }
@@ -36,9 +35,17 @@ Page({
       value: data
     });
   },
+  //得到焦点
+  getFocus(){
+    this.setData({placeholderColor:""})
+  },
   search(e){
-   const _this=this;
-   var datas=_this.data.value
+    const placeholderText = e.currentTarget.dataset.placeholder;
+    const _this=this;
+   var datas=_this.data.value||placeholderText;
+   if(_this.data.value==""){
+     _this.setData({placeholderColor:"#000"});
+   }
    wx.request({
      url: ''+basePath+'/garbage/Index/encyclopedia',
      method:"post",
@@ -48,9 +55,10 @@ Page({
        var data=res.data.data;
        //没有查询到结果返回的是一个空数组,判断数组是否为空
       if(!data.length==0){
-        _this.setData({list:data,show:false})
+        _this.setData({list:data,show:false});  
       }else{
-        _this.setData({show:true})
+        _this.setData({show:true});
+      
       }
      },
      fail(err){

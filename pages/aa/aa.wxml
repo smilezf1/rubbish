@@ -11,6 +11,7 @@
     
     <navigator class="query" target="{{miniProgram}}" app-id="wx10d9d1765d1ea386" hover-class="none"
     bindtap="query">查询</navigator>
+    
   </view>
   <!-- 主体部分 -->
   <view class="main">

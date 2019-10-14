@@ -37,9 +37,8 @@ page{
   margin-top: 100rpx;
   flex-direction: column;
 }
-
 .content-item {
-  width: 540rpx;
+  width: 570rpx;
   height: 86rpx;
   background: rgba(255, 255, 255, 1);
   box-shadow: 0rpx 2rpx 14rpx 0rpx rgba(200, 200, 200, 1);
