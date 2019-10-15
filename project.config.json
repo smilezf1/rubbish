@@ -1507,6 +1507,27 @@
 					"id": -1,
 					"name": "pages/game/miniGame/miniGame",
 					"pathName": "pages/game/miniGame/miniGame",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/test/test",
+					"pathName": "pages/test/test",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/ranklist/ranklist",
+					"pathName": "pages/ranklist/ranklist",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/advise/advise",
+					"pathName": "pages/advise/advise",
 					"scene": null
 				}
 			]

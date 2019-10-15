@@ -7,6 +7,10 @@ page {
   border-top:2rpx solid #EEEEEE;
   margin-bottom:-72px;
 }
+.ranklist .hint{
+  margin-top:20rpx;
+  letter-spacing:2rpx;
+}
 .ranklist .list {
   padding: 0 20rpx;
   background: #fff;

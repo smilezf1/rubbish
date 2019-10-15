@@ -9,7 +9,8 @@ Page({
     imglist:[],
     cursor: 0,
     value:"",
-    loading:false
+    loading:false,
+    placeholderText:"请您对莘庄镇垃圾分类工作情况建言献策，您的留言将以匿名形式提交给我们，作为我们推进工作的重要依据。"
   },
   /**
    * 生命周期函数--监听页面加载
@@ -62,7 +63,7 @@ Page({
           if(res.data.code==200){
             setTimeout(function () {
               _this.setData({loading: false })
-              wx.showToast({title:'提交成功', icon: 'success' })
+              wx.showToast({ title: "感谢您对莘庄垃圾分类工作的支持和理解", icon: "none", duration: 2000 })
               _this.setData({value:"",imglist:[]});
             }, 1000)
           }else{
@@ -87,7 +88,7 @@ Page({
           if(res.statusCode==200){
             setTimeout(function () {
               _this.setData({ loading: false })
-              wx.showToast({ title: '提交成功', icon: 'success' })
+              wx.showToast({ title: "感谢您对莘庄垃圾分类工作的支持和理解", icon: "none", duration: 2000 })
               _this.setData({ value: "", imglist: [] });
             }, 1000)
           }else{

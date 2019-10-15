@@ -23,7 +23,7 @@
     </view>
     <view class="bottom">
       <text class="next" bindtap="complete" wx:if="{{current==list.length-1}}">再来一次</text>
-      <text class="next" bindtap="next" wx:else>下一题</text>
+      <!-- <text class="next" bindtap="next" wx:else>下一题</text> -->
     </view>
   </view>
 </view>
