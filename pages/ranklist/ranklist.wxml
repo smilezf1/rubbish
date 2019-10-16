@@ -2,7 +2,7 @@
 <view class="ranklist">
   <view class="list">
   <button open-type="getUserInfo"></button>
-   <view class="hint">“小区垃圾分类绩效排名总分数由莘庄镇网格中心专业测评,以下分值为阶段性动态绩效仅供参考”</view>
+   <view class="hint">以下数据由莘庄镇网格中心阶段性测评提供</view>
     <view class="list-item" wx:for="{{list}}" wx:key="{{item.id}}" wx:if="{{index<30}}">
       <image src="{{rank[index]}}" class="rank " mode="widthFix" wx:if="{{index<3}}"></image>
       <text class="rank" wx:if="{{index>2}}">{{index+1}}</text>

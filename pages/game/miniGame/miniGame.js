@@ -27,6 +27,7 @@ Page({
     minute: 3,
     second: 59,
     userChoose: "",
+    againShow:false
   },
   /**
    * 生命周期函数--监听页面加载
@@ -63,7 +64,10 @@ Page({
         this.setData({ current: current + 1 });
       }
     } else {
-      wx.showToast({ title: '' + errorMessContent + '', icon: "none" })
+      wx.showToast({title: '' + errorMessContent + '', icon: "none" })
+    }
+    if(current==4){
+      this.setData({againShow:true})
     }
     list[current] = { ...curQuestion, userAnswer: userAnswer };
     this.setData({ list });

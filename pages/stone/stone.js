@@ -1,5 +1,6 @@
 // pages/stone/stone.js
 const basePath = require("../../utils/config.js");
+const util=require("../../utils/util.js");
 Page({
 
   /**
@@ -13,6 +14,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
+    
   },
 
   /**
@@ -30,16 +33,12 @@ Page({
       success(data){
         var data = data.data.data.model;
         _this.setData({listItem:data});
-        console.log(data,"他山之石封面");
         wx.hideLoading()
       },
       fail(error){
         console.log(error)
       }
     });
-
-    
-
   },
 
   /**

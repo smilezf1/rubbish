@@ -4,12 +4,15 @@ page {
   background: #F2F2F2;
 }
 .ranklist{
-  border-top:2rpx solid #EEEEEE;
+  /* border-top:2rpx solid #EEEEEE; */
   margin-bottom:-72px;
 }
 .ranklist .hint{
-  margin-top:20rpx;
+padding:20rpx 0;
   letter-spacing:2rpx;
+  text-align:center;
+  font-size:28rpx; 
+  border-bottom:2rpx solid #EEEEEE;
 }
 .ranklist .list {
   padding: 0 20rpx;
