@@ -1,5 +1,6 @@
 // pages/star/star.js
 const basePath = require("../../utils/config.js");
+const util=require("../../utils/util.js");
 var app=getApp();
  let token = wx.getStorageSync("token");
 let openid = wx.getStorageSync("openid");
@@ -29,7 +30,6 @@ Page({
       } else {
         console.log(res.data);
       }
-      console.log("调用函数")
     });
     wx.getSetting({
       success: res => {
@@ -76,7 +76,6 @@ Page({
      let type = e.currentTarget.dataset.type;
     if(this.data.listItem[index]){
       let num = this.data.listItem[index].num;
-      
        if(type==0){
          wx.request({
            url: '' + basePath + '/garbage/Index/giveAlike',
@@ -120,12 +119,13 @@ Page({
     wx.request({
       url:''+basePath+'/garbage/Index/Week',
       method: "post",
-      data: {page:1,
-      psize:10,
-        openid:wx.getStorageSync("openid")
+      data: {page:1,psize:60, openid:wx.getStorageSync("openid")
       },
       success(res) {
         var data = res.data.data.model;
+       data.forEach(function(v,i){
+         v.createtime = util.timeago(new Date(v.createtime).getTime(),'Y年M月D日 h:m:s');
+       })
         _this.setData({listItem:data});
         wx.hideLoading();
       }

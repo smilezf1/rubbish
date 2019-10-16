@@ -69,6 +69,7 @@ Page({
     if(current==4){
       this.setData({againShow:true})
     }
+    console.log(list[current]);
     list[current] = { ...curQuestion, userAnswer: userAnswer };
     this.setData({ list });
     if (current == 4 && userAnswer == answer) {

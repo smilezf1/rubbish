@@ -64,7 +64,7 @@ function timeago(dateTimeStamp, format) {	//这里融合了上面的自定义时
   // } else if (weekC >= 1) {
   //   result = "" + parseInt(weekC) + "周前";
   // } else 
-  if (dayC >= 1 && dayC <= 3) {
+  if (dayC >= 1 && dayC <=18) {
     result = "" + parseInt(dayC) + "天前";
   } else if (hourC >= 1 && hourC <= 24) {
     result = "" + parseInt(hourC) + "小时前";
@@ -76,7 +76,6 @@ function timeago(dateTimeStamp, format) {	//这里融合了上面的自定义时
     result = formatTime2(new Date(dateTimeStamp) / 1000, format)		//否则输出“format”(自定义格式)的时间
   return result;
 }
-console.log("11");
 module.exports = {
   formatTime:formatTime,
   formatTime2:formatTime2,

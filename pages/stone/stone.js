@@ -14,31 +14,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
-    
+  
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
     const _this=this;
-    wx.showLoading({
-      title: '正在加载',
-    })
+    wx.showLoading({title:'正在加载',})
     wx.request({
       url: ''+basePath+'/garbage/Index/learning',
       method:"post",
-      data:{page:1,psize:2},
+      data:{page:1,psize:100},
       success(data){
         var data = data.data.data.model;
-        _this.setData({listItem:data});
+      data.forEach(function(v,i){
+        v.createtime = util.timeago(new Date(v.createtime).getTime(),'Y年M月D日 h:m:s');    
+      })
+        _this.setData({listItem:{ ...data } });
         wx.hideLoading()
       },
       fail(error){
         console.log(error)
       }
     });
+
   },
 
   /**

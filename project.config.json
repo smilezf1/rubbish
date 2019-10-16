@@ -1563,6 +1563,83 @@
 					"id": -1,
 					"name": "pages/stone/stone",
 					"pathName": "pages/stone/stone",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/stone/stone",
+					"pathName": "pages/stone/stone",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/game/miniGame/miniGame",
+					"pathName": "pages/game/miniGame/miniGame",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/stone/stone",
+					"pathName": "pages/stone/stone",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/stone/stone",
+					"pathName": "pages/stone/stone",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/star/star",
+					"pathName": "pages/star/star",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/star/star",
+					"pathName": "pages/star/star",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/star/star",
+					"pathName": "pages/star/star",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/star/star",
+					"pathName": "pages/star/star",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/star/star",
+					"pathName": "pages/star/star",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/stone/stone",
+					"pathName": "pages/stone/stone",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/star/star",
+					"pathName": "pages/star/star",
 					"scene": null
 				}
 			]
