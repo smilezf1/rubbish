@@ -10,8 +10,8 @@ page {
 .ranklist .hint{
 padding:20rpx 0;
   letter-spacing:2rpx;
-  text-align:center;
-  font-size:28rpx; 
+  text-align:justify;
+  font-size:24rpx; 
   border-bottom:2rpx solid #EEEEEE;
 }
 .ranklist .list {

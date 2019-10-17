@@ -13,7 +13,7 @@
  <view class="title">{{item.title}}</view>
  <view class="container">
  <image src="{{item.image}}" mode="widthFix" style="width:100%"></image>
- <!-- <image src="{{item.image}}"  style="width:670rpx;height:470rpx"></image> -->
+ <view class="container-content">{{item.content}}</view>
  <!-- 点赞 -->
  <view class="praise" bindtap="praise" data-type="{{item.type}}" data-index="{{index}}" data-id="{{item.id}}">
  <image  wx:if="{{item.type==0}}" src="/static/images/praise1.png" mode="widthFix"></image>
@@ -22,13 +22,10 @@
  </view>
  </view>
  </view>
- <!-- 自定义弹窗-->
+</view>
+<!-- 自定义弹窗-->
  <view class="window" hidden="{{authWindowHidden}}">
  <view class="title">申请获取你的公开信息</view>
  <view class="button"><button bindtap="cancel" style="color:#AAAAAA">取消</button><button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" bindtap="sure" style="color:#0BB20C">确定</button></view>
  </view>
- <!--遮罩层 -->
- <!-- <view class="shade" hidden="{{shadeShow}}"></view> -->
-</view>
-
 </view>

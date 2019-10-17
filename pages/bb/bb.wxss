@@ -1,0 +1,19 @@
+/* pages/bb/bb.wxss */
+.bb {
+  padding:20rpx;
+}
+.region,.street{
+  border-bottom:1px solid #d2d2d2;
+  padding:20rpx 0;
+}
+.region:after,.street:after{
+  content:"";
+  display:block;
+  clear:both; 
+}
+.region .left,.street .left{
+  float:left;
+}
+.region .right,.street .right{
+  float:right;
+}

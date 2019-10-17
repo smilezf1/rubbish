@@ -7,6 +7,9 @@
   width: 100%;
   height: 370rpx;
 }
+.textarea:focus{
+  color:transparent;
+}
 .addimg  image {
   width: 78rpx;
   height: 78rpx;

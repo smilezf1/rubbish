@@ -18,7 +18,8 @@
     "pages/stone/content/content",
     "pages/star/star",
     "pages/publish/publish",
-    "pages/aa/aa"
+    "pages/aa/aa",
+    "pages/bb/bb"
   ],
   "window": {
     "backgroundTextStyle": "light",

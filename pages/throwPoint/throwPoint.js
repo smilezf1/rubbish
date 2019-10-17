@@ -8,8 +8,7 @@ Page({
   data: {
     show: false,
     regionAddress: [],
-    streetAddress: "",
-    aa: [1, 2, 3, 4]
+    streetAddress:[],
   },
 
   /**
@@ -19,7 +18,7 @@ Page({
     const $this = this
     http('post', '/garbage/Index/region', {}, function(res){
       $this.setData({
-        regionAddress: res.data
+        regionAddress:res.data
       });
       wx.hideLoading()
     })

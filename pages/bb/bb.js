@@ -1,47 +1,43 @@
-// pages/stone/stone.js
-const basePath = require("../../utils/config.js");
-const util=require("../../utils/util.js");
+// pages/bb/bb.js
+const basePath=require("../../utils/config.js");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-   listItem:[]
+    rangeAddress:[],
+    streetAddress:[]
+   
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    const _this=this;
+    wx.request({
+      url:''+basePath+'/garbage/Index/region',
+      success(res){
+        let datas=res.data.data;
+        _this.setData({rangeAddress:datas});
+        console.log(datas);
+      },
+      fail(res){
+        console.log(res);
+      }
+    })
   },
+  chooseRegion(e){
+    console.log(e);
+
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    const _this=this;
-    wx.showLoading({title:'正在加载',})
-    wx.request({
-      url: ''+basePath+'/garbage/Index/learning',
-      method:"post",
-      data:{page:1,psize:100},
-      success(data){
-        var data = data.data.data.model;
-        console.log(data);
-      data.forEach(function(v,i){
-        //new Date(date).getTime()在苹果手机不兼容
-        v.createtime = util.timeago(new Date(v.createtime.replace(/-/g, '/')).getTime(),'Y年M月D日 h:m:s'); 
-      })
-        _this.setData({listItem:[...data]})
-        
-        
-        wx.hideLoading()
-      },
-      fail(error){
-        console.log(error)
-      }
-    });
 
   },
 

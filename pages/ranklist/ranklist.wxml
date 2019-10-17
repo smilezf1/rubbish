@@ -2,7 +2,7 @@
 <view class="ranklist">
   <view class="list">
   <button open-type="getUserInfo"></button>
-   <view class="hint">以下数据由莘庄镇网格中心阶段性测评提供</view>
+   <view class="hint">以下数据由莘庄镇网格中心阶段性测评所得。测评对象为本镇153个小区，公示名单为绩效排名前30。</view>
     <view class="list-item" wx:for="{{list}}" wx:key="{{item.id}}" wx:if="{{index<30}}">
       <image src="{{rank[index]}}" class="rank " mode="widthFix" wx:if="{{index<3}}"></image>
       <text class="rank" wx:if="{{index>2}}">{{index+1}}</text>

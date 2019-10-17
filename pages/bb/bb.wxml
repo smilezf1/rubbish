@@ -1,0 +1,15 @@
+<!--pages/bb/bb.wxml-->
+<view class="bb">
+<view class="region">
+<text class="left">所在地区</text>
+<picker class="right" mode="selector" range="{{rangeAddress}}" range-key="title" value="{{index}}" bindchange="chooseRegion">
+<text class="choose"  data-value="{{rangeAddress}}">请选择</text>
+</picker>
+</view>
+<view class="street">
+<text class="left">所在街道</text>
+<picker class="right" mode="selector" range="{{rangeAddress[0].child}}" range-key="title">
+<text class="choose">请选择</text>
+</picker>
+</view>
+</view>

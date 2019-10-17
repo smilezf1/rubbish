@@ -43,7 +43,7 @@ App({
             //请求获取用户openid
             wx.request({
               url: '' + basePath + '/garbage/Index/getOpenid',
-              method: "post",
+              method:"post",
               data: {code:code},
               success: res => {
                 const sessionKey = JSON.parse(res.data.data.model).session_key;
@@ -79,6 +79,7 @@ App({
     openid:"1"
   },
   updateUserInfo: function (openid) {
+    console.log(openid);
     wx.request({
       url: '' + basePath + '/garbage/Index/users',
       method: "post",

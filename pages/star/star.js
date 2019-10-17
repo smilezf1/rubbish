@@ -23,48 +23,40 @@ Page({
   onLoad: function (options) {
     var _this = this;
     app.getOpenid().then(res=>{
-      if (res.status == 200) {
-       _this.setData({
-         openid:wx.getStorageSync('openid')
-        });
+      if (res.status == 200){
+      _this.setData({openid:wx.getStorageSync('openid')});
       } else {
         console.log(res.data);
       }
     });
     wx.getSetting({
       success: res => {
-        if (res.authSetting['scope.userInfo']) {
+        if (res.authSetting['scope.userInfo']){
           // call getUserInfo, upload 
           wx.getUserInfo({
             success: res => {
               var rawData = JSON.parse(res.rawData);
-              _this.updateUserInfo(openid, rawData.nickName, rawData.avatarUrl);  
+              _this.updateUserInfo(openid, rawData.nickName, rawData.avatarUrl);     
             }
           });
-        } else {
-          console.log("用户已经获取了权限")
+        } else { 
           // show auth window
-          this.setData({
-            authWindowHidden:false, 
-          });
+          this.setData({authWindowHidden:false});
         }
-      }});  
+      }
+      });  
   },
   cancel(e){
     this.setData({
       authWindowHidden:true,
        shadeShow: true
       });
-    console.log("用户取消授权");
   },
   sure(e){
     const _this=this;
-    this.setData({
-      authWindowHidden:true,
-      shadeShow: true
-       });
+    this.setData({authWindowHidden:true,shadeShow:true});
   },
-  onGetUserInfo: function(res){
+  onGetUserInfo:function(res){
     const _this = this;
     var rawData = JSON.parse(res.detail.rawData);
     _this.updateUserInfo(openid, rawData.nickName, rawData.avatarUrl);
@@ -80,27 +72,27 @@ Page({
          wx.request({
            url: '' + basePath + '/garbage/Index/giveAlike',
            method: "post",
-           data:{
-          token:wx.getStorageSync('token'),
-           id},
+           data:{token:wx.getStorageSync('token'),id},
            success(res) {
              const code = res.data.code;
+             console.log(code);
              if(code==200){
-               wx.showToast({title:'点赞成功',icon:"none" });
+               wx.showToast({title:'谢谢你的点赞',icon:"none" });
                _this.data.listItem[index].num = _this.data.listItem[index].num + 1;
+               _this.updateMessage(openid);
                _this.setData({listItem:[..._this.data.listItem]});
              }
              if(code==301){
-               console.log(_this.data.listItem);
-               wx.showToast({title:'不能点赞', icon:"none" });
-             }
-           }, fail(err) {
+               wx.showToast({title:'你还没有授权,不可点赞哦', icon:"none" }); 
+               }
+            }, 
+            fail(err) {
              console.log(err)
            }
          });
        }
        if(type==1){
-         wx.showToast({ title: '不可点赞', icon: "none" });
+         wx.showToast({title:'你已经点过赞了哦',icon: "none" });
        };
     }
   },
@@ -115,21 +107,28 @@ Page({
    */
   onReady:function(){
     const _this = this;
-    wx.showLoading({title:'正在加载'})
+    wx.showLoading({title:'正在加载'});
+    this.updateMessage(openid);
+  },
+  updateMessage: function (openid) {
+    const _this=this;
     wx.request({
-      url:''+basePath+'/garbage/Index/Week',
+      url: '' + basePath + '/garbage/Index/Week',
       method: "post",
-      data: {page:1,psize:60, openid:wx.getStorageSync("openid")
+      data: {
+        page: 1, psize: 60, openid
       },
       success(res) {
         var data = res.data.data.model;
-       data.forEach(function(v,i){
-         v.createtime = util.timeago(new Date(v.createtime).getTime(),'Y年M月D日 h:m:s');
-       })
-        _this.setData({listItem:data});
+        console.log(data);
+        data.forEach(function (v, i) {
+          v.createtime = util.timeago(new Date(v.createtime).getTime(), 'Y年M月D日 h:m:s');
+        });
+        _this.setData({listItem: [...data].reverse()});
         wx.hideLoading();
       }
     }) 
+   
   },
   /**
    * 生命周期函数--监听页面显示
@@ -163,17 +162,14 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (){
   },
-
-  updateUserInfo: function(openid,nickname,avatar){
+  updateUserInfo:function(openid,nickname,avatar){
     wx.request({
       url: '' + basePath + '/garbage/Index/users',
       method: "post",
