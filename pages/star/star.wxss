@@ -68,6 +68,7 @@ border-radius:none !important;
   font-weight:550;
   font-size:32rpx;
   margin-top:-10rpx;
+  color:#333;
 }
 .item-top .issueTime{
   font-size:26rpx;

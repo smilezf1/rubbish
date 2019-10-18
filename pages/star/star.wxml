@@ -1,6 +1,5 @@
 <!--pages/star/star.wxml-->
 <view class="star">
-
 <view class="item" wx:for="{{listItem}}" wx:key="{{item.id}}">
 <!-- 顶部 -->
  <view class="item-top">
@@ -12,7 +11,7 @@
  <view class="item-content">
  <view class="title">{{item.title}}</view>
  <view class="container">
- <image src="{{item.image}}" mode="widthFix" style="width:100%"></image>
+ <image src="{{item.image}}" mode="widthFix" style="width:33%" bindtap="zoomImg" data-currentimg="{{item.image}}"></image>
  <view class="container-content">{{item.content}}</view>
  <!-- 点赞 -->
  <view class="praise" bindtap="praise" data-type="{{item.type}}" data-index="{{index}}" data-id="{{item.id}}">

@@ -1,15 +1,32 @@
-<!--pages/bb/bb.wxml-->
-<view class="bb">
-<view class="region">
-<text class="left">所在地区</text>
-<picker class="right" mode="selector" range="{{rangeAddress}}" range-key="title" value="{{index}}" bindchange="chooseRegion">
-<text class="choose"  data-value="{{rangeAddress}}">请选择</text>
-</picker>
+<!--pages/star/star.wxml-->
+<view class="star">
+<view class="item" wx:for="{{listItem}}" wx:key="{{item.id}}">
+<!-- 顶部 -->
+ <view class="item-top">
+ <image mode="widthFix" src="{{item.avatar}}"></image>
+ <view class="txt">
+ <view class="villageName">{{item.nickname}}</view>
+ <view class="issueTime">{{item.createtime}}</view></view></view>
+ <!-- 中间部分 -->
+ <view class="item-content">
+ <view class="title">{{item.title}}</view>
+ <view class="container">
+ <block wx:for="{{item.image}}" wx:key wx:for-index="imgIndex" wx:for-item="imgItem" class="imgBox">
+ <image src="{{imgItem}}" mode="widthFix" class="img1" bindtap="zoom" data-currentImg="{{imgItem}}" data-currentImgArray="{{item.image}}"></image>
+ </block>
+ <view class="container-content">{{item.content}}</view>
+ <!-- 点赞 -->
+ <view class="praise" bindtap="praise" data-type="{{item.type}}" data-index="{{index}}" data-id="{{item.id}}">
+ <image  wx:if="{{item.type==0}}" src="/static/images/praise1.png" mode="widthFix"></image>
+ <image  wx:if="{{item.type==1}}" src="/static/images/praise2.png" mode="widthFix"></image>
+ <text class="praiseNum">{{item.num}}</text>
+ </view>
+ </view>
+ </view>
 </view>
-<view class="street">
-<text class="left">所在街道</text>
-<picker class="right" mode="selector" range="{{rangeAddress[0].child}}" range-key="title">
-<text class="choose">请选择</text>
-</picker>
-</view>
+<!-- 自定义弹窗-->
+ <view class="window" hidden="{{authWindowHidden}}">
+ <view class="title">申请获取你的公开信息</view>
+ <view class="button"><button bindtap="cancel" style="color:#AAAAAA">取消</button><button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" bindtap="sure" style="color:#0BB20C">确定</button></view>
+ </view>
 </view>

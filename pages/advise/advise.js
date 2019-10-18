@@ -21,13 +21,10 @@ Page({
     console.log(e)
     let $this = this
     wx.chooseImage({
-      count: 4,
       success(res) {
         let imglist = $this.data.imglist;
-        console.log(imglist);
-        imglist.push(res.tempFilePaths[0])
-        $this.setData({ imglist });
-        console.log($this.data.imglist);
+        imglist.push(...res.tempFilePaths)
+        $this.setData({imglist});
       }
     })
   },
@@ -35,7 +32,6 @@ Page({
   const _this=this;
     var text=e.detail.value.textarea;
     var img=_this.data.imglist;
-    console.log(text,img);
     if(text==""||img.length==0){
     wx.showModal({
       title: '提示',
@@ -106,6 +102,21 @@ Page({
     
     }
   },
+//预览图片
+  zoomImg(e){
+    let currentImg=e.currentTarget.dataset.currentimg;
+    let currentImgArray=e.currentTarget.dataset.currentimgarray
+    console.log(currentImg, e.currentTarget.dataset);
+    wx.previewImage({
+      current:currentImg,
+      urls:currentImgArray
+    })
+
+  },
+
+
+
+
   input(e){
     //得到用户输入数据的个数
     var number=e.detail.cursor;
@@ -114,7 +125,7 @@ Page({
     })
   },
    removeimg(e){
-     console.log(e);
+   console.log(e);
      let imglist=this.data.imglist;
      let index=e.currentTarget.dataset.index;
      imglist.splice(index,1);

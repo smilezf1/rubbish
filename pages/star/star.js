@@ -21,6 +21,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({ title:'正在加载' });
     var _this = this;
     app.getOpenid().then(res=>{
       if (res.status == 200){
@@ -29,6 +30,7 @@ Page({
         console.log(res.data);
       }
     });
+    _this.updateMessage(openid)
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']){
@@ -46,11 +48,16 @@ Page({
       }
       });  
   },
+  //点击图片进行预览
+zoomImg(e){
+  let currentImg=e.currentTarget.dataset.currentimg;
+  wx.previewImage({
+    current:currentImg,
+    urls:[currentImg]
+  })
+},
   cancel(e){
-    this.setData({
-      authWindowHidden:true,
-       shadeShow: true
-      });
+    this.setData({authWindowHidden:true,shadeShow:true});
   },
   sure(e){
     const _this=this;
@@ -106,26 +113,30 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady:function(){
-    const _this = this;
-    wx.showLoading({title:'正在加载'});
-    this.updateMessage(openid);
+    // const _this = this;
+    // this.updateMessage(openid);
   },
   updateMessage: function (openid) {
+    wx.showLoading({
+      title:'正在加载哦',
+    })
     const _this=this;
     wx.request({
       url: '' + basePath + '/garbage/Index/Week',
       method: "post",
       data: {
-        page: 1, psize: 60, openid
+        page:1, psize: 60, openid
       },
       success(res) {
         var data = res.data.data.model;
         console.log(data);
         data.forEach(function (v, i) {
-          v.createtime = util.timeago(new Date(v.createtime).getTime(), 'Y年M月D日 h:m:s');
+          //v.createtime = util.timeago(new Date(v.createtime).getTime(), 'Y年M月D日 h:m:s');
+           v.createtime = util.timeago(new Date(v.createtime.replace(/-/g, '/')).getTime(),'Y年M月D日 h:m:s'); 
         });
         _this.setData({listItem: [...data].reverse()});
-        wx.hideLoading();
+        wx.hideLoading()
+       
       }
     }) 
    

@@ -78,8 +78,7 @@ App({
     userInfo:null,
     openid:"1"
   },
-  updateUserInfo: function (openid) {
-    console.log(openid);
+  updateUserInfo: function(openid){
     wx.request({
       url: '' + basePath + '/garbage/Index/users',
       method: "post",

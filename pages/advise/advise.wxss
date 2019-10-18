@@ -1,6 +1,6 @@
 /* pages/advise/index.wxss */
 .advise {
-  padding: 30rpx;
+  padding:20rpx;
   border-top:1rpx solid #EEEEEE;
 }
 .textarea {
@@ -13,19 +13,23 @@
 .addimg  image {
   width: 78rpx;
   height: 78rpx;
-  margin-right: 20rpx;
 }
 .addimg .feedbackImg{
-  width:200rpx;
-  position:relative;
-   padding:30rpx 30rpx 0 0;
+   width:32%;
+   margin-right:9rpx;
+   display:inline-block;
+   overflow:hidden;
+   box-sizing:border-box; 
+   position:relative;
+   padding:15rpx 15rpx 0 0;
 }
 .addimg .feedbackImg image{
-  width:50rpx;
-  height:50rpx;
+  width:40rpx;
+  height:40rpx;
   position:absolute;
-  top:6rpx;
-  right:-10rpx;
+  top:2rpx;
+  right:0rpx;
+  z-index:2;
 }
  .line {
   height: 60rpx;
