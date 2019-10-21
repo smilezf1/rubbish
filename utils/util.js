@@ -14,21 +14,22 @@ const formatTime = date => {
 * number: 传入时间戳
 * format：返回格式，支持自定义，但参数必须与formateArr里保持一致
 */
-function formatTime2(number, format) {
-  var formateArr = ['Y', 'M', 'D', 'h', 'm', 's'];
-  var returnArr = [];
-  var date = new Date(number * 1000);
+function formatTime2(number, format){
+  let formateArr = ['Y', 'M', 'D', 'h', 'm', 's'];
+  let returnArr = [];
+  let date = new Date(number * 1000);
   returnArr.push(date.getFullYear());
   returnArr.push(formatNumber(date.getMonth() + 1));
   returnArr.push(formatNumber(date.getDate()));
   returnArr.push(formatNumber(date.getHours()));
   returnArr.push(formatNumber(date.getMinutes()));
   returnArr.push(formatNumber(date.getSeconds()));
-  for (var i in returnArr) {
+  for (let i in returnArr) {
     format = format.replace(formateArr[i], returnArr[i]);
   }
   return format;
 }
+
 //数据转化
 const formatNumber = n => {
   n = n.toString()
@@ -37,21 +38,21 @@ const formatNumber = n => {
 //将时间戳转换为几分钟前、几小时前
 function timeago(dateTimeStamp, format) {	//这里融合了上面的自定义时间格式，“format”就是干这个用的
   // dateTimeStamp是一个时间毫秒，注意时间戳是秒的形式，在这个毫秒的基础上除以1000，就是十位数的时间戳。13位数的都是时间毫秒。
-  var minute = 1000 * 60;      //把分，时，天，周，半个月，一个月用毫秒表示
-  var hour = minute * 60;
-  var day = hour * 24;
-  var week = day * 7;
-  var halfamonth = day * 15;
-  var month = day * 30;
-  var now = new Date().getTime();   //获取当前时间毫秒
-  var diffValue = now - dateTimeStamp;//时间差
+  let minute = 1000 * 60;      //把分，时，天，周，半个月，一个月用毫秒表示
+  let hour = minute * 60;
+  let day = hour * 24;
+  let week = day * 7;
+  let halfamonth = day * 15;
+  let month = day * 30;
+  let now = new Date().getTime();   //获取当前时间毫秒
+  let diffValue = now - dateTimeStamp;//时间差
   if (diffValue < 0) { return; }
-  var minC = diffValue / minute;  //计算时间差的分，时，天，周，月
-  var hourC = diffValue / hour;
-  var dayC = diffValue / day;
-  var weekC = diffValue / week;
-  var monthC = diffValue / month;
-  var result = '';
+  let minC = diffValue / minute;  //计算时间差的分，时，天，周，月
+  let hourC = diffValue / hour;
+  let dayC = diffValue / day;
+  let weekC = diffValue / week;
+  let monthC = diffValue / month;
+  let result = '';
   if (dayC >= 1 && dayC <=1000) {
     result = "" + parseInt(dayC) + "天前";
   } else if (hourC >= 1 && hourC <= 24) {
@@ -65,7 +66,7 @@ function timeago(dateTimeStamp, format) {	//这里融合了上面的自定义时
   return result;
 }
 module.exports = {
-  formatTime:formatTime,
-  formatTime2:formatTime2,
-  timeago: timeago
+  formatTime,
+  formatTime2,
+  timeago
 }

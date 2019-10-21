@@ -1,6 +1,6 @@
 /* pages/star/star.wxss */
-page{
-  height:100%;
+.star{
+  position:relative;
 }
 .item{
   border-top:2rpx solid #f2f2f2;

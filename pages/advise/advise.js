@@ -35,7 +35,7 @@ Page({
     if(text==""||img.length==0){
     wx.showModal({
       title: '提示',
-      content: '反馈内容不能未空！',
+      content:'文字和图片不能未空！',
       success(res){
         if(res.confirm){
           console.log("用户点击确定");
@@ -59,7 +59,7 @@ Page({
           if(res.data.code==200){
             setTimeout(function () {
               _this.setData({loading: false })
-              wx.showToast({ title: "感谢您对莘庄垃圾分类工作的支持和理解", icon: "none", duration: 2000 })
+              wx.showToast({ title:"感谢您对莘庄垃圾分类工作的支持和理解", icon: "none",duration: 2000 })
               _this.setData({value:"",imglist:[]});
             }, 1000)
           }else{

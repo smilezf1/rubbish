@@ -11,7 +11,7 @@
  <view class="item-content">
  <view class="title">{{item.title}}</view>
  <view class="container">
- <image src="{{item.image}}" mode="widthFix" style="width:33%" bindtap="zoomImg" data-currentimg="{{item.image}}"></image>
+ <image src="{{item.image}}" style="width:210rpx;height:210rpx" bindtap="zoomImg" data-currentimg="{{item.image}}"></image>
  <view class="container-content">{{item.content}}</view>
  <!-- 点赞 -->
  <view class="praise" bindtap="praise" data-type="{{item.type}}" data-index="{{index}}" data-id="{{item.id}}">
@@ -27,4 +27,6 @@
  <view class="title">申请获取你的公开信息</view>
  <view class="button"><button bindtap="cancel" style="color:#AAAAAA">取消</button><button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" bindtap="sure" style="color:#0BB20C">确定</button></view>
  </view>
+ <!-- 遮罩层 -->
+ <view class="shade" hidden="{{authWindowHidden}}"></view>
 </view>

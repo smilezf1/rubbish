@@ -19,7 +19,8 @@
     "pages/star/star",
     "pages/publish/publish",
     "pages/aa/aa",
-    "pages/bb/bb"
+    "pages/bb/bb",
+    "pages/cc/cc"
   ],
   "window": {
     "backgroundTextStyle": "light",

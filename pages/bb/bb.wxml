@@ -11,9 +11,15 @@
  <view class="item-content">
  <view class="title">{{item.title}}</view>
  <view class="container">
- <block wx:for="{{item.image}}" wx:key wx:for-index="imgIndex" wx:for-item="imgItem" class="imgBox">
- <image src="{{imgItem}}" mode="widthFix" class="img1" bindtap="zoom" data-currentImg="{{imgItem}}" data-currentImgArray="{{item.image}}"></image>
- </block>
+
+ <!-- <view wx:for="{{item.image}}" wx:key wx:for-index="imgIndex" wx:for-item="imgItem" class="item.image==4?'imgBox1'：'imgBox''" >
+ <image src="{{imgItem}}" bindtap="zoom" class="img1" data-currentImg="{{imgItem}}" data-currentImgArray="{{item.image}}" ></image>
+ </view> -->
+ <view class="{{item.image.length==4?'imgBox1':'imgBox'}}">
+ <image wx:for="{{item.image}}" wx:key src="{{item}}" bindtap="zoom" class="img1"></image>
+ </view>
+
+
  <view class="container-content">{{item.content}}</view>
  <!-- 点赞 -->
  <view class="praise" bindtap="praise" data-type="{{item.type}}" data-index="{{index}}" data-id="{{item.id}}">

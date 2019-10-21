@@ -15,7 +15,7 @@ Page({
       { id: 89, createtime: "2天前", nickName: "虹莘新村", num: 5, title: "闪闪虹莘~感谢有你们~", image: ["https://www.appi2b2b.com/image/feedback/20191017/176d35fb9df2eaaa590bb7ca6cb15e20.jpg"]},
       { id: 2, createtime: "2天前", nickName: "虹莘新村", num: 5, title: "闪闪虹莘~感谢有你们~", image: ["https://www.appi2b2b.com/image/feedback/20191017/176d35fb9df2eaaa590bb7ca6cb15e20.jpg", "https://www.appi2b2b.com/image/feedback/20191017/176d35fb9df2eaaa590bb7ca6cb15e20.jpg", "https://www.appi2b2b.com/image/feedback/20191017/176d35fb9df2eaaa590bb7ca6cb15e20.jpg"]},
       { id:3, createtime: "2天前", nickName: "虹莘新村", num: 5, title: "闪闪虹莘~感谢有你们~", image: ["https://www.appi2b2b.com/image/feedback/20191017/176d35fb9df2eaaa590bb7ca6cb15e20.jpg", "https://www.appi2b2b.com/image/feedback/20191017/176d35fb9df2eaaa590bb7ca6cb15e20.jpg", "https://www.appi2b2b.com/image/feedback/20191017/176d35fb9df2eaaa590bb7ca6cb15e20.jpg",
-        "https://www.appi2b2b.com/image/feedback/20191018/58ecbfeda0821b0cb0a4d780d2125620.jpg"    
+        "https://www.appi2b2b.com/image/feedback/20191017/176d35fb9df2eaaa590bb7ca6cb15e20.jpg"    
  ] },
       {
         id: 4, createtime: "2天前", nickName: "虹莘新村", num: 5, title: "闪闪虹莘~感谢有你们~", image: ["https://www.appi2b2b.com/image/feedback/20190929/74d66a788aec4df14e5819da46d9101e.jpg", "https://www.appi2b2b.com/image/feedback/20191017/176d35fb9df2eaaa590bb7ca6cb15e20.jpg", "https://www.appi2b2b.com/image/feedback/20191017/176d35fb9df2eaaa590bb7ca6cb15e20.jpg",

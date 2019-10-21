@@ -118,11 +118,11 @@ zoomImg(e){
   },
   updateMessage: function (openid) {
     wx.showLoading({
-      title:'正在加载哦',
+      title:'正在加载',
     })
     const _this=this;
     wx.request({
-      url: '' + basePath + '/garbage/Index/Week',
+      url:'' + basePath + '/garbage/Index/Week',
       method: "post",
       data: {
         page:1, psize: 60, openid
@@ -131,7 +131,6 @@ zoomImg(e){
         var data = res.data.data.model;
         console.log(data);
         data.forEach(function (v, i) {
-          //v.createtime = util.timeago(new Date(v.createtime).getTime(), 'Y年M月D日 h:m:s');
            v.createtime = util.timeago(new Date(v.createtime.replace(/-/g, '/')).getTime(),'Y年M月D日 h:m:s'); 
         });
         _this.setData({listItem: [...data].reverse()});

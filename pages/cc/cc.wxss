@@ -1,0 +1,20 @@
+/* pages/cc/cc.wxss */
+.cc{
+  padding:0 20rpx;
+}
+.region,.street{
+  padding:20rpx 0;
+  margin-bottom:20rpx;
+ border-bottom:2rpx solid #d2d2d2;
+}
+.region:after,.street:after{
+  content:"";
+  display:block;
+  clear:both;
+}
+.region .left,.street .left{
+  float:left;
+}
+.region .right,.street .right{
+  float:right;
+}
