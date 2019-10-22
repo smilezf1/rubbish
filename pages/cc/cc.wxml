@@ -22,4 +22,13 @@
 </view>
 </view>
 <view bindtap="search" data-streetAddress="{{streetAddress[streetIndex].title}}" data-regionAddress="{{listItem[regionIndex].title}}" class="search" hover-class="changeBg">查询附近垃圾点</view>
+<!-- 查询结果 -->
+<view class="result" hidden="true">
+<view class="title">查询结果</view>
+<view class="content">
+<view>{{searchResult.title}}:{{searchResult.address}}</view>
+<view>{{searchResult.time}}</view>
+</view>
+</view>
+
 </view>

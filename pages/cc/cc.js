@@ -9,7 +9,8 @@ Page({
     listItem:[],
     regionIndex:"",
     streetIndex:"",
-    streetAddress:[]
+    streetAddress:[],
+    searchResult:{}
 
   },
 
@@ -34,7 +35,6 @@ Page({
   //所在居委
   chooseRegion(e){
     let index=e.detail.value;
-    console.log(this.data.listItem[index].title)
     let data=this.data.listItem[index].child
     this.setData({ streetAddress: data,regionIndex:index})
   },
@@ -53,10 +53,12 @@ Page({
   },
   //查询垃圾
   search(e){
+    const {regionIndex,listItem,streetIndex}=this.data; 
     if(!this.data.regionIndex||!this.data.streetIndex){
       wx.showToast({title:'请选择居委',icon:"none"});
     }
-
+    this.setData({searchResult:listItem[regionIndex].child[streetIndex]})
+    console.log(listItem[regionIndex].child[streetIndex])
   },
 
   /**

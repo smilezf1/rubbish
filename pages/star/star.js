@@ -21,7 +21,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.showLoading({ title:'正在加载' });
+    wx.showLoading({title:'正在加载' });
     var _this = this;
     app.getOpenid().then(res=>{
       if (res.status == 200){
@@ -30,11 +30,10 @@ Page({
         console.log(res.data);
       }
     });
-    _this.updateMessage(openid)
+    _this.updateMessage(wx.getStorageSync('openid'))
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']){
-          // call getUserInfo, upload 
           wx.getUserInfo({
             success: res => {
               var rawData = JSON.parse(res.rawData);
@@ -42,7 +41,6 @@ Page({
             }
           });
         } else { 
-          // show auth window
           this.setData({authWindowHidden:false});
         }
       }
@@ -51,9 +49,10 @@ Page({
   //点击图片进行预览
 zoomImg(e){
   let currentImg=e.currentTarget.dataset.currentimg;
+  let currentImgArray=e.currentTarget.dataset.currentimgarray;
   wx.previewImage({
     current:currentImg,
-    urls:[currentImg]
+    urls:currentImgArray,
   })
 },
   cancel(e){
@@ -66,7 +65,7 @@ zoomImg(e){
   onGetUserInfo:function(res){
     const _this = this;
     var rawData = JSON.parse(res.detail.rawData);
-    _this.updateUserInfo(openid, rawData.nickName, rawData.avatarUrl);
+    _this.updateUserInfo(wx.getStorageSync("openid"), rawData.nickName, rawData.avatarUrl);
   },
   praise(e){
     const _this = this;
@@ -82,15 +81,14 @@ zoomImg(e){
            data:{token:wx.getStorageSync('token'),id},
            success(res) {
              const code = res.data.code;
-             console.log(code);
              if(code==200){
-               wx.showToast({title:'谢谢你的点赞',icon:"none" });
+               _this.updateMessage(wx.getStorageSync("openid"));
+               wx.showToast({title:'谢谢你的点赞',icon:"none"});
                _this.data.listItem[index].num = _this.data.listItem[index].num + 1;
-               _this.updateMessage(openid);
                _this.setData({listItem:[..._this.data.listItem]});
              }
              if(code==301){
-               wx.showToast({title:'你还没有授权,不可点赞哦', icon:"none" }); 
+               wx.showToast({title:'不可点赞', icon:"none" }); 
                }
             }, 
             fail(err) {
@@ -113,13 +111,8 @@ zoomImg(e){
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady:function(){
-    // const _this = this;
-    // this.updateMessage(openid);
   },
   updateMessage: function (openid) {
-    wx.showLoading({
-      title:'正在加载',
-    })
     const _this=this;
     wx.request({
       url:'' + basePath + '/garbage/Index/Week',
@@ -134,8 +127,7 @@ zoomImg(e){
            v.createtime = util.timeago(new Date(v.createtime.replace(/-/g, '/')).getTime(),'Y年M月D日 h:m:s'); 
         });
         _this.setData({listItem: [...data].reverse()});
-        wx.hideLoading()
-       
+        wx.hideLoading();
       }
     }) 
    
@@ -144,7 +136,7 @@ zoomImg(e){
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.updateMessage(wx.getStorageSync("openid"));
   },
 
   /**

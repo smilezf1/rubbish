@@ -1,41 +1,4 @@
 
-<!-- <view class="fullBackUp">
-<view class="top">
-<view class="honorific">亲爱的市民朋友们:</view>
-<view class="line1">{{list[0].outset}}</view>
-</view>
-<view class="content">
-<view class="left">
-<view class="p1">
-<view class="title">{{list[0].title1}}</view>
-<view class="article">{{list[0].title1Content}}</view>
-</view>
-<view class="p2">
-<view class="title">{{list[0].title2}}</view>
-<view class="article">{{list[0].title2Content}}</view>
-</view>
-<view class="p3">
-<view class="title">{{list[0].title3}}</view>
-<view class="article">{{list[0].title3Content}}</view>
-</view>
-</view>
-<view class="right">
-<view class="p4">
-<view class="title">{{list[0].title4}}</view>
-<view class="article">{{list[0].title4Content}}</view>
-</view>
-<view class="p5">
-<view class="title">{{list[0].title5}}</view>
-<view class="article">{{list[0].title5Content}}<view>{{list[0].title5Content1}}</view></view>
-</view>
-<view class="epilog">
-<view class="time">{{list[0].epilogTime}}</view>
-<view>{{list[0].epilog1}}</view>
-<view>{{list[0].epilog2}}</view>
-</view>
-</view>
-</view>
-</view> -->
 <view class="fullBackUp">
 <image src="{{list.content}}" mode="widthFix" style="width:100%"></image>
 </view>

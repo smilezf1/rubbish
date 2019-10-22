@@ -46,3 +46,22 @@ page{
   font-weight:550;
   margin-top:40rpx;
 }
+.cc .result{
+  width:80%;
+  margin:0 auto;
+ background:white;
+ padding:10rpx;
+ box-sizing:border-box;
+ margin-top:30rpx;
+}
+.cc .result .title{
+  color:#333333;
+  font-weight:550; 
+  font-size:34rpx;
+}
+.cc .result .content{
+  margin-top:30rpx;
+  color:#666666;
+  font-size:26rpx;
+  line-height:50rpx; 
+}

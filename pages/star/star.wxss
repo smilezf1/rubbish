@@ -59,18 +59,17 @@ border-radius:none !important;
   float:left;
 }
 .item-top .txt{
-  margin-left:20rpx;
   position:relative;
   top:14rpx;
   float:left;
 }
 .item-top .villageName{
-  font-weight:550;
+  font-weight:650;
   font-size:32rpx;
   margin-top:-10rpx;
-  color:#333;
+  color:#696B8D;
 }
-.item-top .issueTime{
+.item-content .issueTime{
   font-size:26rpx;
   color:#AFAFAF;
 }
@@ -79,17 +78,40 @@ border-radius:none !important;
   display:block;
   clear:both;
 }
-
 .item-content .title{
   margin:10rpx 0;
-  color:#616161;
-  padding:10rpx 0;
+  color:#333;
+  font-weight:600; 
+  padding:10rpx 0 5rpx 0;
 }
 .item-content .container{
   margin-top:10rpx;
 }
-.item-content .praise{
+.item-content .container-content{
+  color:#333;
+  font-size:26rpx;
+  margin-bottom:10rpx;
+  text-align:justify;
+}
+.item-content .container-bottom{
   margin-top:10rpx;
+}
+.item-content .container-bottom:after{
+  content:"";
+  display:inline-block;
+  clear:both; 
+}
+.item .container .imgBox2{
+  width:440rpx;
+}
+.item .container .imgBox1 image,.item .container .imgBox2 image{
+margin-right:10rpx;
+}
+.item .container .img1{
+  width:210rpx;
+  height:210rpx;
+}
+.item-content .praise{
   position:relative;
   height:40rpx;
 }

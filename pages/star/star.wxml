@@ -6,19 +6,27 @@
  <image mode="widthFix" src="{{item.avatar}}"></image>
  <view class="txt">
  <view class="villageName">{{item.nickname}}</view>
- <view class="issueTime">{{item.createtime}}</view></view></view>
+ </view></view>
  <!-- 中间部分 -->
  <view class="item-content">
  <view class="title">{{item.title}}</view>
  <view class="container">
- <image src="{{item.image}}" style="width:210rpx;height:210rpx" bindtap="zoomImg" data-currentimg="{{item.image}}"></image>
- <view class="container-content">{{item.content}}</view>
- <!-- 点赞 -->
- <view class="praise" bindtap="praise" data-type="{{item.type}}" data-index="{{index}}" data-id="{{item.id}}">
+ <view class="container-content">{{item.nr}}</view>
+ <view class="{{item.image.length==4?'imgBox2':'imgBox1'}}">
+ <image wx:for="{{item.image}}" wx:for-index="imgIndex" wx:for-item="imgItem"wx:key src="{{imgItem}}" bindtap="zoomImg" class="img1" data-currentimgarray="{{item.image}}" data-currentimg="{{imgItem}}" wx:if="{{imgIndex<9}}"></image>
+ </view>
+ <view class="container-bottom">
+<view class="issueTime" style="float:left">{{item.createtime}}</view>
+<!-- 点赞 -->
+ <view class="praise" bindtap="praise" data-type="{{item.type}}" data-index="{{index}}" data-id="{{item.id}}" style="float:right">
  <image  wx:if="{{item.type==0}}" src="/static/images/praise1.png" mode="widthFix"></image>
  <image  wx:if="{{item.type==1}}" src="/static/images/praise2.png" mode="widthFix"></image>
  <text class="praiseNum">{{item.num}}</text>
  </view>
+ </view>
+
+ 
+
  </view>
  </view>
 </view>
