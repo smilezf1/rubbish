@@ -33,7 +33,6 @@ Page({
   },
   //所在居委
   chooseRegion(e){
-    console.log(e.detail.value);
     let index=e.detail.value;
     console.log(this.data.listItem[index].title)
     let data=this.data.listItem[index].child
@@ -41,7 +40,6 @@ Page({
   },
   //所在小区
   chooseStreet(e){
-    console.log(e.detail.value);
     let index=e.detail.value;
     this.setData({streetIndex:index})
   },
@@ -58,7 +56,7 @@ Page({
     if(!this.data.regionIndex||!this.data.streetIndex){
       wx.showToast({title:'请选择居委',icon:"none"});
     }
-    console.log(e.currentTarget.dataset.regionaddress,e.currentTarget.dataset.streetaddress);
+
   },
 
   /**

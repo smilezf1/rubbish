@@ -1,19 +1,25 @@
 <!--pages/cc/cc.wxml-->
 <view class="cc">
+<view class="top">
 <view class="region">
 <text class="left">所在居委</text>
 <picker class="right" range="{{listItem}}" range-key="title" bindchange="chooseRegion" value="{{index}}">
 <text class="choose">{{listItem[regionIndex].title?listItem[regionIndex].title:'请选择'}}</text>
+<image src="/static/images/advance.png" mode="widthFix"></image>
 </picker>
 </view>
+
 <view class="street">
 <view class="left">所在小区</view>
-<view wx:if="{{!regionIndex}}">
-<text class="right" bindtap="warn">请选择</text>
+<view wx:if="{{!regionIndex}}" class="right">
+<text class="choose" bindtap="warn">请选择</text>
+<image src="/static/images/advance.png" mode="widthFix"></image>
 </view>
 <picker class="right" range="{{streetAddress}}" range-key="title" bindchange="chooseStreet" wx:else>
-<text>{{streetAddress[streetIndex].title?streetAddress[streetIndex].title:"请选择"}}</text>
+<text class="choose">{{streetAddress[streetIndex].title?streetAddress[streetIndex].title:"请选择"}}</text>
+<image src="/static/images/advance.png" mode="widthFix"></image>
 </picker>
 </view>
-<view style="text-align:center" bindtap="search" data-streetAddress="{{streetAddress[streetIndex].title}}" data-regionAddress="{{listItem[regionIndex].title}}">查询附近垃圾点</view>
+</view>
+<view bindtap="search" data-streetAddress="{{streetAddress[streetIndex].title}}" data-regionAddress="{{listItem[regionIndex].title}}" class="search" hover-class="changeBg">查询附近垃圾点</view>
 </view>
