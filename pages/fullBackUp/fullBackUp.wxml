@@ -1,4 +1,4 @@
 
 <view class="fullBackUp">
-<image src="{{list.content}}" mode="widthFix" style="width:100%"></image>
+<image src="{{list.content}}"  style="width:100%;height:100%"></image>
 </view>

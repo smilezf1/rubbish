@@ -1983,6 +1983,13 @@
 					"id": -1,
 					"name": "pages/star/star",
 					"pathName": "pages/star/star",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/star/star",
+					"pathName": "pages/star/star",
 					"scene": null
 				}
 			]

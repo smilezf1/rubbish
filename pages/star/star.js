@@ -16,6 +16,9 @@ Page({
     nickName:"",
     avatar:"",
     openid:"",
+    ellipsis:"ellipsis",
+    unellipsis:"unellipsis",
+    text:"全文"
   },
   /**
    * 生命周期函数--监听页面加载
@@ -112,6 +115,13 @@ zoomImg(e){
    */
   onReady:function(){
   },
+  //阅读全文
+  fullText(e) {
+    this.setData({
+      ellipsis:"unellipsis"
+    })
+
+  },
   updateMessage: function (openid) {
     const _this=this;
     wx.request({
@@ -122,7 +132,6 @@ zoomImg(e){
       },
       success(res) {
         var data = res.data.data.model;
-        console.log(data);
         data.forEach(function (v, i) {
            v.createtime = util.timeago(new Date(v.createtime.replace(/-/g, '/')).getTime(),'Y年M月D日 h:m:s'); 
         });

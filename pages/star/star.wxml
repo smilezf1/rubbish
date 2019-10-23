@@ -11,7 +11,11 @@
  <view class="item-content">
  <view class="title">{{item.title}}</view>
  <view class="container">
- <view class="container-content">{{item.nr}}</view>
+ <view wx:if="{{item.nr.length>=70}}" class="{{ellipsis}}">{{item.nr}}</view>
+ <view wx:else class="{{unellipsis}}">
+ {{item.nr}}
+ </view>
+ <text wx:if="{{item.nr.length>=70}}" class="fullText" bindtap="fullText" data-length="{{item.nr.length}}">全文</text>
  <view class="{{item.image.length==4?'imgBox2':'imgBox1'}}">
  <image wx:for="{{item.image}}" wx:for-index="imgIndex" wx:for-item="imgItem"wx:key src="{{imgItem}}" bindtap="zoomImg" class="img1" data-currentimgarray="{{item.image}}" data-currentimg="{{imgItem}}" wx:if="{{imgIndex<9}}"></image>
  </view>

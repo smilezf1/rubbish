@@ -87,11 +87,26 @@ border-radius:none !important;
 .item-content .container{
   margin-top:10rpx;
 }
-.item-content .container-content{
+.item-content .unellipsis{
+ color:#333;
+  font-size:26rpx;
+  margin-bottom:10rpx;
+  text-align:justify;
+}
+.item-content .ellipsis{
   color:#333;
   font-size:26rpx;
   margin-bottom:10rpx;
   text-align:justify;
+   display:-webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:3;
+  overflow:hidden;
+}
+.fullText{
+  color:#696B8D;
+  font-size:26rpx;
+  font-weight:600;
 }
 .item-content .container-bottom{
   margin-top:10rpx;
