@@ -1,19 +1,8 @@
-//index.js
-//获取应用实例
-const app = getApp()
+
 const basePath = require('../../utils/config.js');
-// <navigator class="query" target="{{miniProgram}}" app-id="wx10d9d1765d1ea386" hover-class="none"bindtap = "query" > 查询</navigator >
 Page({
   data: {
     list: [
-      // {
-      //   id: 1,
-      //   navTitle: "查询",
-      //   navContent: "垃圾怎么分",
-      //   img: "/static/images/item1.png",
-      //   // src: "/pages/separate/separate"
-      //  src: "/pages/aa/aa",
-      // },
       {
         id: 2,
         navTitle: "查询",
@@ -65,13 +54,7 @@ Page({
       }
     ]
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function() {},
+  onLoad:function(){},
   jump(e) {
     let url = e.currentTarget.dataset.url
     if (url) {
@@ -79,24 +62,8 @@ Page({
         url,
         success: function(res) {},
         fail: function(res) {},
-        complete: function(res) {},
-      })
-    } else {
-      wx.showToast({
-        title: '正在努力开发中',
-
-      })
-      wx.showToast({
-        title: '正在努力开发中',
-        icon: 'none',
       })
     }
-  },
-
-  //查询
-  query(){
-    console.log(1);
-
   },
   /**
    * 用户点击右上角分享

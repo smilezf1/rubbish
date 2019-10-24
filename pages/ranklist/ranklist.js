@@ -1,8 +1,6 @@
 // pages/ranklist/index.js
 const basePath = require("../../utils/config.js");
-import {
-  http
-} from "../../utils/http";
+import {http}from "../../utils/http";
 Page({
   /**
    * 页面的初始数据
@@ -12,16 +10,15 @@ Page({
     userImg: ["" + basePath + "/images/user.jpg"],
     rank: ["/static/images/one.png", "/static/images/two.png", "/static/images/three.png"]
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var $this = this
-    wx.showLoading({title: '正在加载'})
-    http('post', '/garbage/Index/lists', {}, function(res) {
+    var _this = this
+    wx.showLoading({title:'正在加载'})
+    http('post','/garbage/Index/lists',{},function(res){
       console.log(res.data);
-      $this.setData({list:res.data})
+      _this.setData({list:res.data})
       setTimeout(function(){
         wx.hideLoading()
       },200)
@@ -31,25 +28,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function(){
-    wx.getSetting({
-      success:res=>{
-        if(res.authSetting['scope.userInfo']){
-          wx.getUserInfo({
-            success:res=>{
-              console.log(res)
-            },fail(err){
-              console.log(err)
-            }
-          })
-        }else{
-          wx.authorize({
-
-          })
-        }
-      }
-    });
   },
-
   /**
    * 生命周期函数--监听页面显示
    */

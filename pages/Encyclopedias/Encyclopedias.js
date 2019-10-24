@@ -19,21 +19,20 @@ Page({
   onLoad: function(options) {
     var _this = this
     wx.showLoading({ title: '正在加载',})
-    wx.request({
-      url: ''+basePath+'/garbage/Index/encyclopedia',
-      method:"post",
-      success(res){
-        _this.setData({list:res.data.data});
-        console.log(res.data.data);
-        wx.hideLoading()
-      }
-    })
+    _this.getData();
   },
   aa(e) {
     var data = e.detail.value
-    this.setData({
-      value: data
-    });
+    this.setData({ value: data});
+  },
+  getData(){
+    const _this=this;
+    http("post", '/garbage/Index/encyclopedia', {}, function (res) {
+      _this.setData({list:res.data});
+      setTimeout(function () {
+        wx.hideLoading()
+      }, 200)
+    })
   },
   //得到焦点
   getFocus(){
@@ -46,25 +45,15 @@ Page({
    if(_this.data.value==""){
      _this.setData({placeholderColor:"#000"});
    }
-   wx.request({
-     url: ''+basePath+'/garbage/Index/encyclopedia',
-     method:"post",
-     data:{keyword:datas},
-     success(res){
-       console.log(res.data.data)
-       var data=res.data.data;
-       //没有查询到结果返回的是一个空数组,判断数组是否为空
-      if(!data.length==0){
-        _this.setData({list:data,show:false});  
-      }else{
-        _this.setData({show:true});
-      
-      }
-     },
-     fail(err){
-       console.log(err)
-     }
-   })
+  let obj1={keyword:datas};
+  http("post",'/garbage/Index/encyclopedia',obj1,function(res){
+    let data=res.data;
+    if(!data.length==0){
+      _this.setData({list:data,show:false})
+    }else{
+      _this.setData({show:true})
+    }
+  })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

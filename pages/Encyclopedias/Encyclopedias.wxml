@@ -2,8 +2,8 @@
 <view class="container" style="background-image:url('{{bgImg}}');">
   <form class="search">
     <view class="input-view">
-    <image src="{{searchImg}}" mode="widthFix" bindtap="search" data-placeholder="文明居住"></image>
-      <input placeholder="文明居住" placeholder-style="color:{{placeholderColor}}" bindinput="aa" bindfocus="getFocus"></input>
+    <image src="{{searchImg}}" mode="widthFix" bindtap="search" data-placeholder="文明公约"></image>
+      <input placeholder="文明公约" placeholder-style="color:{{placeholderColor}}" bindinput="aa" bindfocus="getFocus"></input>
     </view>
   </form>
   <view class="content" hidden="{{show}}">

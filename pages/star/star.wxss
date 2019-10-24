@@ -90,13 +90,13 @@ border-radius:none !important;
 .item-content .unellipsis{
  color:#333;
   font-size:26rpx;
-  margin-bottom:10rpx;
+  margin-bottom:6rpx;
   text-align:justify;
 }
 .item-content .ellipsis{
   color:#333;
   font-size:26rpx;
-  margin-bottom:10rpx;
+  margin-bottom:6rpx;
   text-align:justify;
    display:-webkit-box;
   -webkit-box-orient: vertical;
@@ -107,6 +107,8 @@ border-radius:none !important;
   color:#696B8D;
   font-size:26rpx;
   font-weight:600;
+  display:inline-block;
+  margin-bottom:6rpx;
 }
 .item-content .container-bottom{
   margin-top:10rpx;

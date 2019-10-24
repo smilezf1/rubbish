@@ -1,4 +1,4 @@
-<!--pages/separate/separate.wxml-->
+
 <view class="separate">
   <!-- 头部 -->
   <view class="s-top">

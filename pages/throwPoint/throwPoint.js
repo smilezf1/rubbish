@@ -42,10 +42,9 @@ Page({
   },
   //选择小区
   chooseDistrict(e) {
-    const $this = this
-    console.log(e)
+    const _this = this
     let value = e.detail.value
-    this.setData({
+    _this.setData({
       districtindex: value
     })
   },
@@ -66,7 +65,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-    console.log(this.data.regionAddress[0])
   },
 
   /**

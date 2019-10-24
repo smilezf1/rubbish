@@ -1,44 +1,46 @@
 <!--pages/star/star.wxml-->
 <view class="star">
-<view class="item" wx:for="{{listItem}}" wx:key="{{item.id}}">
-<!-- 顶部 -->
- <view class="item-top">
- <image mode="widthFix" src="{{item.avatar}}"></image>
- <view class="txt">
- <view class="villageName">{{item.nickname}}</view>
- </view></view>
- <!-- 中间部分 -->
- <view class="item-content">
- <view class="title">{{item.title}}</view>
- <view class="container">
- <view wx:if="{{item.nr.length>=70}}" class="{{ellipsis}}">{{item.nr}}</view>
- <view wx:else class="{{unellipsis}}">
- {{item.nr}}
- </view>
- <text wx:if="{{item.nr.length>=70}}" class="fullText" bindtap="fullText" data-length="{{item.nr.length}}">全文</text>
- <view class="{{item.image.length==4?'imgBox2':'imgBox1'}}">
- <image wx:for="{{item.image}}" wx:for-index="imgIndex" wx:for-item="imgItem"wx:key src="{{imgItem}}" bindtap="zoomImg" class="img1" data-currentimgarray="{{item.image}}" data-currentimg="{{imgItem}}" wx:if="{{imgIndex<9}}"></image>
- </view>
- <view class="container-bottom">
-<view class="issueTime" style="float:left">{{item.createtime}}</view>
-<!-- 点赞 -->
- <view class="praise" bindtap="praise" data-type="{{item.type}}" data-index="{{index}}" data-id="{{item.id}}" style="float:right">
- <image  wx:if="{{item.type==0}}" src="/static/images/praise1.png" mode="widthFix"></image>
- <image  wx:if="{{item.type==1}}" src="/static/images/praise2.png" mode="widthFix"></image>
- <text class="praiseNum">{{item.num}}</text>
- </view>
- </view>
+  <view class="item" wx:for="{{listItem}}" wx:key="{{item.id}}">
+    <!-- 顶部 -->
+    <view class="item-top">
+      <image mode="widthFix" src="{{item.avatar}}"></image>
+      <view class="txt">
+        <view class="villageName">{{item.nickname}}</view>
+      </view>
+    </view>
+    <!-- 中间部分 -->
+    <view class="item-content">
+      <view class="title">{{item.title}}</view>
 
- 
-
- </view>
- </view>
-</view>
-<!-- 自定义弹窗-->
- <view class="window" hidden="{{authWindowHidden}}">
- <view class="title">申请获取你的公开信息</view>
- <view class="button"><button bindtap="cancel" style="color:#AAAAAA">取消</button><button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" bindtap="sure" style="color:#0BB20C">确定</button></view>
- </view>
- <!-- 遮罩层 -->
- <view class="shade" hidden="{{authWindowHidden}}"></view>
+      <view class="container">
+        <view class="{{item.isExpand?'ellipsis':'unellipsis'}}">{{item.nr}}</view>
+        <view wx:if="{{item.nr.length>=70}}">
+           <text class="fullText" bindtap="changeState" data-index="{{index}}" wx:if="{{item.isExpand}}">全文</text>
+           <text class="fullText" bindtap="changeState" data-index="{{index}}" wx:else>收起</text>
+        </view>
+        <view class="{{item.image.length==4?'imgBox2':'imgBox1'}}">
+          <image wx:for="{{item.image}}" wx:for-index="imgIndex" wx:for-item="imgItem" wx:key src="{{imgItem}}" bindtap="zoomImg" class="img1" data-currentimgarray="{{item.image}}" data-currentimg="{{imgItem}}" wx:if="{{imgIndex<9}}"></image>
+        </view>
+        <view class="container-bottom">
+          <view class="issueTime" style="float:left">{{item.createtime}}</view>
+          <!-- 点赞 -->
+          <view class="praise" bindtap="praise" data-type="{{item.type}}" data-index="{{index}}" data-id="{{item.id}}" style="float:right">
+            <image wx:if="{{item.type==0}}" src="/static/images/praise1.png" mode="widthFix"></image>
+            <image wx:if="{{item.type==1}}" src="/static/images/praise2.png" mode="widthFix"></image>
+            <text class="praiseNum">{{item.num}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 自定义弹窗-->
+  <view class="window" hidden="{{authWindowHidden}}">
+    <view class="title">申请获取你的公开信息</view>
+    <view class="button">
+      <button bindtap="cancel" style="color:#AAAAAA">取消</button>
+      <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" bindtap="sure" style="color:#0BB20C">确定</button>
+    </view>
+  </view>
+  <!-- 遮罩层 -->
+  <view class="shade" hidden="{{authWindowHidden}}"></view>
 </view>

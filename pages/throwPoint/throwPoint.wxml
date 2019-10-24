@@ -1,4 +1,3 @@
-<!--pages/throwPoint/throwPoint.wxml-->
 <!-- 小区投放点 -->
 <view class="throwPoint" style='position:relative'>
   <!-- 头部 -->
@@ -27,10 +26,10 @@
     <view class="query {{ regionindex||districtindex?'canquery':''}}" bindtap="{{regionindex?'query':'warn'}}" hover-class="changeColor">查询附近垃圾点</view>
     <view class="result" wx:if="{{show}}">
       <text style="font-size:32rpx;font-weight:500;color:rgba(51,51,51,1);line-height:45px;">查询结果</text>
-      <view wx:for="{{list}}" wx:key="{{item.id}}"  class="result-item">
-      <view class="blue"></view> 
-      <view></view>
-      <text>{{item.title}}:{{item.address}}\n {{item.time}}</text>
+      <view wx:for="{{list}}" wx:key="{{item.id}}" class="result-item">
+        <view class="blue"></view>
+        <view></view>
+        <text>{{item.title}}:{{item.address}}\n {{item.time}}</text>
       </view>
     </view>
   </view>
