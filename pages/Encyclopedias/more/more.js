@@ -1,5 +1,6 @@
 // pages/Encyclopedias/more/index.js
-const basePath=require("../../../utils/config.js")
+const basePath=require("../../../utils/config.js");
+import {http} from '../../../utils/http.js';
 Page({
   /**
    * 页面的初始数据
@@ -13,30 +14,14 @@ Page({
    */
   onLoad: function (options) {
     const _this=this;
-    wx.request({
-      url: ''+basePath+'/garbage/Index/encyclopedia',
-      method:"post",
-      success(res){
-        console.log(res.data.data);
-        let data =res.data.data;
-        _this.setData({
-          listItem:data
-
-        })
-
-      },
-      fail(err){
-        console.log(err)
-      }
+    http("post","/garbage/Index/encyclopedia",{},function(res){
+      console.log(res.data);
+      let data=res.data;
+      _this.setData({
+        listItem:data
+      })
     })
-  
-
   },
-  aa(e){
-    console.log(e)
-
-  },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -41,8 +41,9 @@ Page({
   search(e){
     const placeholderText = e.currentTarget.dataset.placeholder;
     const _this=this;
-   var datas=_this.data.value||placeholderText;
-   if(_this.data.value==""){
+    const {value}=_this.data;
+   var datas=value||placeholderText;
+   if(value==""){
      _this.setData({placeholderColor:"#000"});
    }
   let obj1={keyword:datas};

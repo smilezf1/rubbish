@@ -1,7 +1,7 @@
 // pages/star/star.js
 const basePath = require("../../utils/config.js");
 const util = require("../../utils/util.js");
-const http=require("../../utils/http.js");
+import {http} from '../../utils/http.js';
 var app = getApp();
 let token = wx.getStorageSync("token");
 let openid = wx.getStorageSync("openid");
@@ -47,71 +47,57 @@ Page({
   },
   //点击图片进行预览
   zoomImg(e) {
-    let currentImg = e.currentTarget.dataset.currentimg;
-    let currentImgArray = e.currentTarget.dataset.currentimgarray;
+    let {currentimg,currentimgarray}=e.currentTarget.dataset
     wx.previewImage({
-      current: currentImg,
-      urls: currentImgArray
+      current:currentimg,
+      urls:currentimgarray
     })
   },
   cancel(e) {
     this.setData({
-      authWindowHidden: true,
-      shadeShow: true
+      authWindowHidden:true,
+      shadeShow:true
     });
   },
   sure(e) {
     const _this = this;
     this.setData({
-      authWindowHidden: true,
-      shadeShow: true
+      authWindowHidden:true,
+      shadeShow:true
     });
   },
   onGetUserInfo: function(res) {
     const _this = this;
     var rawData = JSON.parse(res.detail.rawData);
-    _this.updateUserInfo(wx.getStorageSync("openid"), rawData.nickName, rawData.avatarUrl);
+    _this.updateUserInfo(wx.getStorageSync("openid"),rawData.nickName,rawData.avatarUrl);
   },
   praise(e) {
     const _this = this;
-    let id = e.currentTarget.dataset.id;
-    let index = e.currentTarget.dataset.index;
-    let type = e.currentTarget.dataset.type;
-    if (this.data.listItem[index]) {
-      let num = this.data.listItem[index].num;
-      if (type == 0) {
-        wx.request({
-          url: '' + basePath + '/garbage/Index/giveAlike',
-          method: "post",
-          data: {
-            token: wx.getStorageSync('token'),
-            id
-          },
-          success(res) {
-            const code = res.data.code;
-            if (code == 200) {
-              _this.updateMessage(wx.getStorageSync("openid"));
-              wx.showToast({
-                title: '谢谢你的点赞',
-                icon: "none"
-              });
-              _this.data.listItem[index].num = _this.data.listItem[index].num + 1;
-              _this.setData({
-                listItem: [..._this.data.listItem]
-              });
-            }
-            if (code == 301) {
-              wx.showToast({
-                title: '不可点赞',
-                icon: "none"
-              })
-            }
-          },
-          fail(err) {
-            console.log(err)
-          }
-        });
 
+    let{id,index,type}=e.currentTarget.dataset;
+    let {listItem}=_this.data;
+    if (listItem[index]) {
+      let num = listItem[index].num;
+      if (type == 0) {
+        http("post","/garbage/Index/giveAlike",{token:wx.getStorageSync("token"),id},function(res){
+          console.log(res.code);
+          const code=res.code;
+          if(code==200){
+           _this.updateMessage(wx.getStorageSync("openid"));
+           wx.showToast({
+             title: '谢谢你的点赞',
+             icon:"none"
+           })
+           listItem[index].num=listItem[index].num+1;
+           _this.setData({listItem:[...listItem]})
+          }
+          if(code==301){
+             wx.showToast({
+               title:"不可点赞",
+               icon:"none"
+             })
+          }
+        })
       }
       if (type == 1) {
         wx.showToast({
@@ -139,26 +125,16 @@ Page({
       title: '正在加载'
     })
     const _this = this;
-    wx.request({
-      url: '' + basePath + '/garbage/Index/Week',
-      method: "post",
-      data: {
-        page: 1,
-        psize: 60,
-        openid
-      },
-      success(res) {
-        var data = res.data.data.model;
-        data.forEach(function(v, i) {
-          v.createtime = util.timeago(new Date(v.createtime.replace(/-/g, '/')).getTime(), 'Y年M月D日 h:m:s');
-          v.isExpand = true
-        });
-        _this.setData({
-          listItem: [...data].reverse()
-        });
-        wx.hideLoading();
-      }
+    http("post","/garbage/Index/Week",{page:1,psize:60,openid},function(res){
+      let data=res.data.model;
+      data.forEach((v,i)=>{
+        v.createtime=util.timeago(new Date(v.createtime.replace(/-/g,"/")).getTime(),'Y年M月D日 h:m:s');
+        v.isExpand=true
+      })
+      _this.setData({listItem:[...data].reverse()})
     })
+    wx.hideLoading();
+
   },
   /**
    * 生命周期函数--监听页面显示
@@ -197,21 +173,8 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {},
-  updateUserInfo: function(openid, nickname, avatar) {
-    wx.request({
-      url: '' + basePath + '/garbage/Index/users',
-      method: "post",
-      data: {
-        openid,
-        nickname,
-        avatar
-      },
-      success(res) {
-        console.log(res)
-      },
-      fail(err) {
-        console.log(err)
-      }
+  updateUserInfo:function(openid, nickname,avatar){
+    http("post","/garbage/Index/users",{openid,nickname,avatar},function(res){
     })
   }
 })

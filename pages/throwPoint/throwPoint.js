@@ -25,12 +25,11 @@ Page({
   },
   //选择居委
   chooseRegion(e) {
-    console.log(e)
     let value = e.detail.value
-    let regionAddress = this.data.regionAddress
+    let {regionAddress} = this.data;
     this.setData({
       regionindex: value,
-      child: regionAddress[value].child
+      child:regionAddress[value].child
     })
   },
   //警告
@@ -49,12 +48,12 @@ Page({
     })
   },
   query(e) {
-    let districtindex = this.data.districtindex
+    let {districtindex,child} = this.data;
     let list = []
     if (!districtindex) {
-      list = this.data.child
+      list=child
     } else {
-      list.push(this.data.child[districtindex])
+      list.push(child[districtindex])
     }
     this.setData({
       list,

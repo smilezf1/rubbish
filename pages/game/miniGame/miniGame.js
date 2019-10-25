@@ -56,7 +56,7 @@ Page({
     let errorMess = ["亲,选错啦,再想想吧!", "很抱歉不是这个答案哦！", "相信你下次会选正确的！"];
     let errorMessContent = errorMess[Math.round(Math.random() * (errorMess.length - 1))];
     //当前的题目
-    const curQuestion = this.data.list[this.data.current];
+    const curQuestion =list[current];
     //当前题目的答案
     const answer = curQuestion.answer;
     if (userAnswer == answer) {
@@ -80,13 +80,8 @@ Page({
         againShow: true
       })
     }
-    console.log(list[current]);
-    list[current] = { ...curQuestion,
-      userAnswer: userAnswer
-    };
-    this.setData({
-      list
-    });
+    list[current] = { ...curQuestion,userAnswer};
+    this.setData({list});
     if (current == 4 && userAnswer == answer) {
       wx.showToast({
         title: '恭喜全部答对，感谢您参与垃圾分类^_^',
@@ -118,10 +113,11 @@ Page({
   //   }
   // },
   previous() {
-    if (this.data.current > 0) {
+    const {current,pageNumber}=this.data;
+    if (current > 0) {
       this.setData({
-        current: this.data.current - 1,
-        pageNumber: this.data.pageNumber - 1
+        current:current-1,
+        pageNumber:pageNumber-1
       })
     }
   },
@@ -130,7 +126,7 @@ Page({
    */
   onShow: function() {
     const _this = this;
-    var timer = this.data.timer
+    const {timer}=this.data;
     _this.setData({
       timer: setInterval(function() {
         setTimeout(function() {
@@ -140,30 +136,27 @@ Page({
     })
   },
   showTime: function() {
-    let m = this.data.minute;
-    let s = this.data.second;
-    var timer = this.data.timer;
+    let {minute,second,timer}=this.data
     let _this = this;
-    s--
+    second--
     _this.setData({
-      second: s
+      second
     });
-    if (s < 10) {
+    if (second < 10) {
       _this.setData({
-        second: "0" + s
+        second: "0" +second
       })
     }
-    if (s < 0) {
-      m--
+    if (second < 0) {
+      minute--
       _this.setData({
-        minute: m,
-        second: 59
+        minute,
+        second:59
       });
     }
-    if (m <= 0 && s == 1) {
+    if (minute <= 0 && second == 1) {
       clearInterval(timer);
     }
-
   },
   /**
    * 生命周期函数--监听页面隐藏
@@ -197,23 +190,23 @@ Page({
   // 提交答案
   complete() {
     let _this = this;
-    if (_this.data.list[_this.data.current].userAnswer == undefined) {
+    const {list,current}=_this.data;
+    if (list[current].userAnswer == undefined) {
       wx.showToast({
         title: '请选择选项',
         icon: "none"
       });
     } else {
-      wx.request({
-        url: '' + basePath + '/garbage/Index/Answer',
-        method: "post",
-        success(data) {
-          var data = data.data.data.model;
-          _this.setData({
-            list: data,
-            current: 0
-          });
-        }
+      http("post","/garbage/Index/Answer",{},function(res){
+        console.log(res.data.model,"提交")
+        let data=res.data.model;
+        _this.setData({
+          list:data,
+          current:0
+        })
       })
+      
+
     }
 
   }

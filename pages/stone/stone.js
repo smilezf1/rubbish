@@ -1,15 +1,11 @@
 // pages/stone/stone.js
 const basePath = require("../../utils/config.js");
 const util = require("../../utils/util.js");
+import {http} from '../../utils/http.js';
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     listItem: []
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -18,29 +14,15 @@ Page({
     wx.showLoading({
       title: '正在加载',
     })
-    wx.request({
-      url: '' + basePath + '/garbage/Index/learning',
-      method: "post",
-      data: {
-        page: 1,
-        psize: 100
-      },
-      success(data) {
-        var data = data.data.data.model;
-        console.log(data);
-        data.forEach(function(v, i) {
-          //new Date(date).getTime()在苹果手机不兼容
-          v.createtime = util.timeago(new Date(v.createtime.replace(/-/g, '/')).getTime(), 'Y年M月D日 h:m:s');
-        })
-        _this.setData({
-          listItem: [...data]
-        })
-        wx.hideLoading()
-      },
-      fail(error) {
-        console.log(error)
-      }
-    });
+    http("post","/garbage/Index/learning",{page:1,psize:100},function(res){
+      console.log(res.data.model);
+      let data=res.data.model;
+      data.forEach((v,i)=>{
+        v.createtime=util.timeago(new Date(v.createtime.replace(/-/g,'/')).getTime(),'Y年M月D日 h:m:s')
+      })
+      _this.setData({listItem:[...data]})
+      wx.hideLoading()
+    })
 
 
   },
