@@ -1,6 +1,6 @@
 <!--pages/star/star.wxml-->
 <view class="star">
-  <view class="item" wx:for="{{listItem}}" wx:key="{{item.id}}">
+  <view class="item" wx:for="{{listItem}}" wx:key="{{item.id}}" wx:if="{{index<4}}">
     <!-- 顶部 -->
     <view class="item-top">
       <image mode="widthFix" src="{{item.avatar}}"></image>
@@ -11,15 +11,14 @@
     <!-- 中间部分 -->
     <view class="item-content">
       <view class="title">{{item.title}}</view>
-
       <view class="container">
         <view class="{{item.isExpand?'ellipsis':'unellipsis'}}">{{item.nr}}</view>
         <view wx:if="{{item.nr.length>=70}}">
-           <text class="fullText" bindtap="changeState" data-index="{{index}}" wx:if="{{item.isExpand}}">全文</text>
-           <text class="fullText" bindtap="changeState" data-index="{{index}}" wx:else>收起</text>
+          <text class="fullText" bindtap="changeState" data-index="{{index}}" wx:if="{{item.isExpand}}">全文</text>
+          <text class="fullText" bindtap="changeState" data-index="{{index}}" wx:else>收起</text>
         </view>
         <view class="{{item.image.length==4?'imgBox2':'imgBox1'}}">
-          <image wx:for="{{item.image}}" wx:for-index="imgIndex" wx:for-item="imgItem" wx:key src="{{imgItem}}" bindtap="zoomImg" class="img1" data-currentimgarray="{{item.image}}" data-currentimg="{{imgItem}}" wx:if="{{imgIndex<9}}"></image>
+          <image lazy-load="{{true}}" wx:for="{{item.image}}" wx:for-index="imgIndex" wx:for-item="imgItem" wx:key src="{{imgItem}}" bindtap="zoomImg" class="img1" data-currentimgarray="{{item.image}}" data-currentimg="{{imgItem}}" wx:if="{{imgIndex<9}}"></image>
         </view>
         <view class="container-bottom">
           <view class="issueTime" style="float:left">{{item.createtime}}</view>
@@ -33,6 +32,7 @@
       </view>
     </view>
   </view>
+  <text class="more">加载更多</text>
   <!-- 自定义弹窗-->
   <view class="window" hidden="{{authWindowHidden}}">
     <view class="title">申请获取你的公开信息</view>

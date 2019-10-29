@@ -1,6 +1,5 @@
 const basePath = require('./config.js')
 function http(method,url,datas,callback){
-  console.log(datas);
   if(!method){
     method="post";
   }

@@ -1,67 +1,156 @@
-/* pages/cc/cc.wxss */
-page{
+/* pages/star/star.wxss */
+.star{
+  position:relative;
+}
+.item{
+  border-top:2rpx solid #f2f2f2;
+  padding:40rpx 40rpx 20rpx 40rpx;
+  box-sizing:border-box;
+   position:relative; 
+
+}
+/* 遮罩层 */
+.shade{
+ background:rgba(0, 0, 0, 0.5);
+  position:absolute;
+  width:100%;
   height:100%;
-  background:#f2f2f2;
+  top:0;
+  left:0; 
 }
-.cc .top{
-  background:white;
+/* 点击加载更多 */
+.more{
+  text-align:center;
+  color:#ccc;
+  margin-bottom:10rpx;
 }
-.region,.street{
-  padding:20rpx;
-  margin-bottom:20rpx;
+
+/* 自定义弹窗组件 */
+.window{
+  width:500rpx;
+ background:white;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%); 
+  border-radius:10rpx;
+ padding-top:20rpx;
+  z-index:2;
 }
-.region{
-   border-bottom:2rpx solid #d2d2d2;
+.window .title{
+  text-align:center;
+  padding:10rpx 0 30rpx;
 }
-.region:after,.street:after{
+.window .button{
+  display:flex;
+  justify-content:space-between;
+  align-content:flex-end;
+  border-top:2rpx solid #f2f2f2;
+ 
+}
+.window .button button{
+  width:45%;
+background: white;
+padding:0 20rpx;
+font-size:30rpx;
+border-radius:none !important;
+}
+/* 去除按钮的边框 */
+.window .button button:after{
+  border:none;
+}
+.item-top image{
+  width:90rpx;
+  border-radius:50%;
+  float:left;
+}
+.item-top .txt{
+  position:relative;
+  top:14rpx;
+  float:left;
+}
+.item-top .villageName{
+  font-weight:650;
+  font-size:32rpx;
+  margin-top:-10rpx;
+  color:#696B8D;
+}
+.item-content .issueTime{
+  font-size:26rpx;
+  color:#AFAFAF;
+}
+.item-top:after{
   content:"";
   display:block;
   clear:both;
 }
-.region .left,.street .left{
-  float:left;
+.item-content .title{
+  margin:10rpx 0;
+  color:#333;
+  font-weight:600; 
+  padding:10rpx 0 5rpx 0;
 }
-.region .right,.street .right{
-  float:right;
-  position:relative;
-  left:-10rpx;
+.item-content .container{
+  margin-top:10rpx;
 }
-.region .right .choose + image, .street .right .choose+ image{
-  width:15rpx;
-  margin-bottom:-3rpx;
-  margin-left:6rpx;
-  
-}
-.region .choose,.street .choose{
-  color:#7D7D7D;
-}
-.cc .search{
-  width:80%;
-  margin:0  auto;
-  text-align:center;
-  background:#C5DEEA;
-  color:white; 
-  padding:20rpx 0;
-  border-radius:10rpx;
-  font-weight:550;
-  margin-top:40rpx;
-}
-.cc .result{
-  width:80%;
-  margin:0 auto;
- background:white;
- padding:10rpx;
- box-sizing:border-box;
- margin-top:30rpx;
-}
-.cc .result .title{
-  color:#333333;
-  font-weight:550; 
-  font-size:34rpx;
-}
-.cc .result .content{
-  margin-top:30rpx;
-  color:#666666;
+.item-content .unellipsis{
+ color:#333;
   font-size:26rpx;
-  line-height:50rpx; 
+  margin-bottom:6rpx;
+  text-align:justify;
+}
+.item-content .ellipsis{
+  color:#333;
+  font-size:26rpx;
+  margin-bottom:6rpx;
+  text-align:justify;
+   display:-webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:3;
+  overflow:hidden;
+}
+.fullText{
+  color:#696B8D;
+  font-size:26rpx;
+  font-weight:600;
+  display:inline-block;
+  margin-bottom:6rpx;
+}
+.item-content .container-bottom{
+  margin-top:10rpx;
+}
+.item-content .container-bottom:after{
+  content:"";
+  display:inline-block;
+  clear:both; 
+}
+.item .container .imgBox2{
+  width:440rpx;
+}
+.item .container .imgBox1 image,.item .container .imgBox2 image{
+margin-right:10rpx;
+}
+.item .container .img1{
+  width:210rpx;
+  height:210rpx;
+}
+.item-content .praise{
+  position:relative;
+  height:40rpx;
+}
+.item-content .praise image{
+  width:30rpx;
+  padding-right:40rpx;
+  position:absolute;
+  right:10rpx;
+  top:6rpx;
+}
+.item-content .praiseNum{
+  color:#999;
+  position:absolute;
+  right:20rpx;
+}
+.publish{
+  position:fixed;
+  right:0;
 }

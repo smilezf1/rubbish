@@ -17,7 +17,6 @@ Page({
     var _this = this
     wx.showLoading({title:'正在加载'})
     http('post','/garbage/Index/lists',{},function(res){
-      console.log(res.data);
       _this.setData({list:res.data})
       setTimeout(function(){
         wx.hideLoading()

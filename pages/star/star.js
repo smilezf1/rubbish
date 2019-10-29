@@ -73,7 +73,6 @@ Page({
   },
   praise(e) {
     const _this = this;
-
     let{id,index,type}=e.currentTarget.dataset;
     let {listItem}=_this.data;
     if (listItem[index]) {
